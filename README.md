@@ -1,9 +1,10 @@
 # re7
 Resident Evil 7 Autosplitter
 
-You can use the following splits files for categories on speedrun.com/re7:
+After activating the RE7 autosplitter, click "Settings". Place a checkmark next to every split you want to use.
 
-NG+:
-http://nope.me/re7/re7splits.zip
+Afterwards, create your splits. Name them anything you want (just make sure they correspond with a checkmarked autosplit). Order them however you'd like.
 
-More categories to come in the future. Check back to this file.
+Make sure you compare against Game Time.
+
+Any problems? Reach out to me.
