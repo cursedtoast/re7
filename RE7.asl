@@ -73,6 +73,7 @@ startup
 	settings.Add("arm", false, "D-Series Arm");
 	settings.Add("magnum", false, "Magnum");
 	settings.Add("snakekey", false, "Snake Key");
+	settings.Add("grenadelauncher", false, "Grenade Launcher");
 	settings.Add("redkeycard", false, "Red Key Card");
 	settings.Add("bluekeycard", false, "Blue Keycard");
 	settings.Add("tvroom", false, "Reached Lucas TV room");
@@ -94,7 +95,6 @@ startup
 	settings.Add("necrotoxin", false, "Necrotoxin");
 	settings.Add("injectedbitch", false, "Injected Evie");
 	settings.Add("albert", false, "Albert Gun (Platimes over)");
-	settings.Add("grenadelauncher", false, "Grenade Launcher");
 }
 
 init
