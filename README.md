@@ -1,8 +1,7 @@
 # re7
 Instructions:
 
-Edit your splits and change the game name to "Resident Evil 7". A message should pop up saying an autosplitter by me is available. Click "Activate". Next, click the "Settings" button and enable any splits you want. From there, you can rename the old splits to whatever you'd like.
-
+Edit your splits and change the game name to "Resident Evil 7". A message should pop up saying an autosplitter by me is available. Click "Activate".
 
 After activating the RE7 autosplitter, click "Settings". Place a checkmark next to every split you want to use.
 
