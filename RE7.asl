@@ -719,7 +719,7 @@ split
 	{
 		if (vars.welcome2family == 0)
 		{
-			if (current.map == "c01_Outside01")
+			if (current.map == "c01_Outside01" && old.map != "snd_zone_forest_dark")
 			{
 				vars.welcome2family = 1;
 				return true;
