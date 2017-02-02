@@ -8,7 +8,6 @@
 //mgr.inz.Player - inventory memory value support
 //Theumer115 - inventory memory value support
 //DarkByte - inventory memory value support
-//test
 
 state("re7")
 {
