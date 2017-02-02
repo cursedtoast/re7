@@ -356,7 +356,7 @@ split
 	{
 		if (vars.chainsawduel == 0)
 		{
-			if (old.slot1 == "ChainSaw" && current.slot1 != "ChainSaw" || old.slot2 == "ChainSaw" && current.slot2 != "ChainSaw" || old.slot3 == "ChainSaw" && current.slot3 != "ChainSaw" || old.slot4 == "ChainSaw" && current.slot4 != "ChainSaw" || old.slot5 == "ChainSaw" && current.slot5 != "ChainSaw" || old.slot6 == "ChainSaw" && current.slot6 != "ChainSaw" || old.slot7 == "ChainSaw" && current.slot7 != "ChainSaw" || old.slot8 == "ChainSaw" && current.slot8 != "ChainSaw" || old.slot9 == "ChainSaw" && current.slot9 != "ChainSaw" || old.slot10 == "ChainSaw" && current.slot10 != "ChainSaw" || current.slot11 == "ChainSaw" || current.slot12 == "ChainSaw" || current.slot13 == "ChainSaw" || current.slot14 == "ChainSaw" || current.slot15 == "ChainSaw" || current.slot16 == "ChainSaw" || current.slot17 == "ChainSaw" || current.slot18 == "ChainSaw" || current.slot19 == "ChainSaw" || current.slot20 == "ChainSaw")
+			if (old.slot1 == "ChainSaw" && current.slot1 != "ChainSaw" && isPaused == 0 || old.slot2 == "ChainSaw" && current.slot2 != "ChainSaw" && isPaused == 0 || old.slot3 == "ChainSaw" && current.slot3 != "ChainSaw" && isPaused == 0 || old.slot4 == "ChainSaw" && current.slot4 != "ChainSaw" && isPaused == 0 || old.slot5 == "ChainSaw" && current.slot5 != "ChainSaw" && isPaused == 0 || old.slot6 == "ChainSaw" && current.slot6 != "ChainSaw" && isPaused == 0 || old.slot7 == "ChainSaw" && current.slot7 != "ChainSaw" && isPaused == 0 || old.slot8 == "ChainSaw" && current.slot8 != "ChainSaw" && isPaused == 0 || old.slot9 == "ChainSaw" && current.slot9 != "ChainSaw" && isPaused == 0 || old.slot10 == "ChainSaw" && current.slot10 != "ChainSaw" && isPaused == 0 || old.slot11 == "ChainSaw" && current.slot11 != "ChainSaw" && isPaused == 0 || old.slot12 == "ChainSaw" && current.slot12 != "ChainSaw" && isPaused == 0 || old.slot13 == "ChainSaw" && current.slot13 != "ChainSaw" && isPaused == 0 || old.slot14 == "ChainSaw" && current.slot14 != "ChainSaw" && isPaused == 0 || old.slot15 == "ChainSaw" && current.slot15 != "ChainSaw" && isPaused == 0)
 			{
 				vars.chainsawduel = 1;
 				return true;
@@ -719,7 +719,7 @@ split
 	{
 		if (vars.welcome2family == 0)
 		{
-			if (current.map == "c01_Outside01" && old.map != "snd_zone_forest_dark")
+			if (current.map == "c01_Outside01" && current.slot1 != "MailMia")
 			{
 				vars.welcome2family = 1;
 				return true;
