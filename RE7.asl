@@ -96,6 +96,7 @@ startup
 	settings.Add("injectedbitch", false, "Injected Evie");
 	settings.Add("albert", false, "Albert Gun (Platimes over)");
 	settings.Add("end", false, "End");
+	settings.Add("test", false, "This does nothing"); 
 }
 
 init
