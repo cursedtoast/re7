@@ -13,4 +13,8 @@ Any problems? Reach out to me.
 
 # I already used your old version, will my splits still work?
 
-Yup. Disable "scriptable autosplitter" in your layout. From there, edit the old splits names to whatever you'd like.
+Yup. Disable "scriptable autosplitter" in your layout. Follow the instructions above. From there, edit the old splits names to whatever you'd like.
+
+# Something didn't split or split at the wrong time.
+
+Make sure you have the split checkmarked as explained above. If that doesn't work, or if a split of yours split at the wrong time, contact me.
