@@ -95,6 +95,7 @@ startup
 	settings.Add("necrotoxin", false, "Necrotoxin");
 	settings.Add("injectedbitch", false, "Injected Evie");
 	settings.Add("albert", false, "Albert Gun (Platimes over)");
+	settings.Add("end", false, "End");
 }
 
 init
@@ -154,6 +155,7 @@ init
 	vars.hatchkey = 0;
 	vars.m19 = 0;
 	vars.fuse = 0;
+	vars.end = 0;
 }
 
 
@@ -766,6 +768,17 @@ split
 			if (current.map == "c03_OldHouse2FHallway02")
 			{
 				vars.crowdoor = 1;
+				return true;
+			}
+		}
+	}
+	if (settings["end"])
+	{
+		if (vars.end == 0)
+		{
+			if (old.slot1 == "Handgun_Albert" && current.slot1 != "Handgun_Albert")
+			{
+				vars.end = 1;
 				return true;
 			}
 		}
