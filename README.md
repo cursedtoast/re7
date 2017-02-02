@@ -1,4 +1,4 @@
-# re7
+# Resident Evil 7 Autosplitter
 Instructions:
 
 Edit your splits and change the game name to "Resident Evil 7". A message should pop up saying an autosplitter by me is available. Click "Activate".
