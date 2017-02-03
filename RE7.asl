@@ -665,6 +665,11 @@ split
 						return true;
 					}
 				}
+				else
+				{
+					vars.fuse3 = 1;
+					return true;
+				}
 			}
 		}
 	}
