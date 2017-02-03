@@ -657,8 +657,14 @@ split
 		{
 			if (current.slot1 == "FuseCh4" || current.slot2 == "FuseCh4" || current.slot3 == "FuseCh4" || current.slot4 == "FuseCh4" || current.slot5 == "FuseCh4" || current.slot6 == "FuseCh4" || current.slot7 == "FuseCh4" || current.slot8 == "FuseCh4" || current.slot9 == "FuseCh4" || current.slot10 == "FuseCh4" || current.slot11 == "FuseCh4" || current.slot12 == "FuseCh4" || current.slot13 == "FuseCh4" || current.slot14 == "FuseCh4" || current.slot15 == "FuseCh4" || current.slot16 == "FuseCh4" || current.slot17 == "FuseCh4" || current.slot18 == "FuseCh4" || current.slot19 == "FuseCh4" || current.slot20 == "FuseCh4")
 			{
-				vars.fuse3 = 1;
-				return true;
+				if (settings["fuse2"])
+				{
+					if (vars.fuse2 == 1)
+					{
+						vars.fuse3 = 1;
+						return true;
+					}
+				}
 			}
 		}
 	}
