@@ -40,7 +40,7 @@ state("re7")
 
 startup
 {
-	settings.Add("version", false, "Version 2.2");
+	settings.Add("version", false, "Version 2.2.1");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
