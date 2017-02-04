@@ -35,13 +35,14 @@ state("re7")
 	string128 slot20 : "re7.exe", 0x0707FCD0, 0x60, 0x20, 0xC8, 0x28, 0x80, 0x24;
 	string128 map : "re7.exe", 0x070B9540, 0xE0, 0x80, 0x0;
 	int isdying : "re7.exe", 0x0707FCD0, 0x60;
+	float hp : "re7.exe", 0x0707FCD0, 0x58, 0x28, 0x28, 0x70, 0x24;
 	//int coins : "re7.exe", 0x07047D58, 0x5A0, 0x170, 0x40, 0x80, 0x20;
 	//int files : "re7.exe", 0x07046398, 0xC0, 0x3B8, 0xB0, 0x78, 0x490; WIP. Coin and file count memory value is differnt per difficulty. This value is for Normal, apparently. Come back later when you found the difficulty memory value, I suppose.
 }
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 2.3.2");
+	settings.Add("version", false, "Autosplitter Version 2.3.3");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -738,7 +739,7 @@ split
 	{
 		if (vars.fuse3 == 0)
 		{
-			if (current.slot1 == "FuseCh4" || current.slot2 == "FuseCh4" || current.slot3 == "FuseCh4" || current.slot4 == "FuseCh4" || current.slot5 == "FuseCh4" || current.slot6 == "FuseCh4" || current.slot7 == "FuseCh4" || current.slot8 == "FuseCh4" || current.slot9 == "FuseCh4" || current.slot10 == "FuseCh4" || current.slot11 == "FuseCh4" || current.slot12 == "FuseCh4" || current.slot13 == "FuseCh4" || current.slot14 == "FuseCh4" || current.slot15 == "FuseCh4" || current.slot16 == "FuseCh4" || current.slot17 == "FuseCh4" || current.slot18 == "FuseCh4" || current.slot19 == "FuseCh4" || current.slot20 == "FuseCh4")
+			if (current.slot1 == "FuseCh4"  && old.slot1 != "FuseCh4" || current.slot2 == "FuseCh4" && old.slot2 != "FuseCh4" || current.slot3 == "FuseCh4" && old.slot3 != "FuseCh4" || current.slot4 == "FuseCh4" && old.slot4!= "FuseCh4" || current.slot5 == "FuseCh4" && old.slot5 != "FuseCh4" || current.slot6 == "FuseCh4" && old.slot6 != "FuseCh4" || current.slot7 == "FuseCh4" && old.slot7 != "FuseCh4" || current.slot8 == "FuseCh4" && old.slot8 != "FuseCh4" || current.slot9 == "FuseCh4" && old.slot9 != "FuseCh4" || current.slot10 == "FuseCh4" && old.slot10 != "FuseCh4" || current.slot11 == "FuseCh4" && old.slot11 != "FuseCh4" || current.slot12 == "FuseCh4" && old.slot12 != "FuseCh4" || current.slot13 == "FuseCh4" && old.slot13 != "FuseCh4" || current.slot14 == "FuseCh4" && old.slot14 != "FuseCh4" || current.slot15 == "FuseCh4" && old.slot15 != "FuseCh4" || current.slot16 == "FuseCh4" && old.slot16 != "FuseCh4" || current.slot17 == "FuseCh4" && old.slot17 != "FuseCh4" || current.slot18 == "FuseCh4" && old.slot18 != "FuseCh4" || current.slot19 == "FuseCh4" && old.slot19 != "FuseCh4" || current.slot20 == "FuseCh4" && old.slot20 != "FuseCh4")
 			{
 				if (settings["fuse2"])
 				{
