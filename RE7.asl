@@ -707,11 +707,8 @@ split
 		{
 			if (current.slot1 != "MachineGun" && old.slot1 == "MachineGun" || current.slot2 != "MachineGun" && old.slot2 == "MachineGun" || current.slot3 != "MachineGun" && old.slot3 == "MachineGun" || current.slot4 != "MachineGun" && old.slot4 == "MachineGun" || current.slot5 != "MachineGun" && old.slot5 == "MachineGun" || current.slot6 != "MachineGun" && old.slot6 == "MachineGun" || current.slot7 != "MachineGun" && old.slot7 == "MachineGun" || current.slot8 != "MachineGun" && old.slot8 == "MachineGun" || current.slot9 != "MachineGun" && old.slot9 == "MachineGun" || current.slot10 != "MachineGun" && old.slot10 == "MachineGun" || current.slot11 != "MachineGun" && old.slot11 == "MachineGun" || current.slot12 != "MachineGun" && old.slot12 == "MachineGun" || current.slot13 != "MachineGun" && old.slot13 == "MachineGun" || current.slot14 != "MachineGun" && old.slot14 == "MachineGun" || current.slot15 != "MachineGun" && old.slot15 == "MachineGun" || current.slot16 != "MachineGun" && old.slot16 == "MachineGun" || current.slot17 != "MachineGun" && old.slot17 == "MachineGun" || current.slot18 != "MachineGun" && old.slot18 == "MachineGun" || current.slot19 != "MachineGun" && old.slot19 == "MachineGun" || current.slot20 != "MachineGun"  && old.slot20 == "MachineGun")
 			{
-				if (vars.isdead == 0 || current.map == "c04_Ship3FSecurityRoom")
-				{
-					vars.videotapeend = 1;
-					return true;
-				}
+				vars.videotapeend = 1;
+				return true;
 			}
 		}
 	}
@@ -787,11 +784,8 @@ split
 		{
 			if (old.slot1 == "SerumTypeE" && current.slot1 != "SerumTypeE" && current.isPaused == 0 || old.slot2 == "SerumTypeE" && current.slot2 != "SerumTypeE" && current.isPaused == 0 || old.slot3 == "SerumTypeE" && current.slot3 != "SerumTypeE" && current.isPaused == 0 || old.slot4 == "SerumTypeE" && current.slot4 != "SerumTypeE" && current.isPaused == 0 || old.slot5 == "SerumTypeE" && current.slot5 != "SerumTypeE" && current.isPaused == 0 || old.slot6 == "SerumTypeE" && current.slot6 != "SerumTypeE" && current.isPaused == 0 || old.slot7 == "SerumTypeE" && current.slot7 != "SerumTypeE" && current.isPaused == 0 || old.slot8 == "SerumTypeE" && current.slot8 != "SerumTypeE" && current.isPaused == 0 || old.slot9 == "SerumTypeE" && current.slot9 != "SerumTypeE" && current.isPaused == 0 || old.slot10 == "SerumTypeE" && current.slot10 != "SerumTypeE" && current.isPaused == 0 || old.slot11 == "SerumTypeE" && current.slot11 != "SerumTypeE" && current.isPaused == 0 || old.slot12 == "SerumTypeE" && current.slot12 != "SerumTypeE" && current.isPaused == 0 || old.slot13 == "SerumTypeE" && current.slot13 != "SerumTypeE" && current.isPaused == 0 || old.slot14 == "SerumTypeE" && current.slot14 != "SerumTypeE" && current.isPaused == 0 || old.slot15 == "SerumTypeE" && current.slot15 != "SerumTypeE" && current.isPaused == 0 || old.slot16 == "SerumTypeE" && current.slot16 != "SerumTypeE" && current.isPaused == 0 || old.slot17 == "SerumTypeE" && current.slot17 != "SerumTypeE" && current.isPaused == 0 || old.slot18 == "SerumTypeE" && current.slot18 != "SerumTypeE" && current.isPaused == 0 || old.slot19 == "SerumTypeE" && current.slot19 != "SerumTypeE" && current.isPaused == 0 || old.slot20 == "SerumTypeE" && current.slot20 != "SerumTypeE" && current.isPaused == 0)
 			{
-				if (vars.isdying == 0)
-				{
-					vars.injectedbitch = 1;
-					return true;
-				}
+				vars.injectedbitch = 1;
+				return true;
 			}
 		}
 	}
