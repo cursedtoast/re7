@@ -41,7 +41,7 @@ state("re7")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 2.3.0");
+	settings.Add("version", false, "Autosplitter Version 2.3.1");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -707,7 +707,7 @@ split
 		{
 			if (current.slot1 != "MachineGun" && old.slot1 == "MachineGun" || current.slot2 != "MachineGun" && old.slot2 == "MachineGun" || current.slot3 != "MachineGun" && old.slot3 == "MachineGun" || current.slot4 != "MachineGun" && old.slot4 == "MachineGun" || current.slot5 != "MachineGun" && old.slot5 == "MachineGun" || current.slot6 != "MachineGun" && old.slot6 == "MachineGun" || current.slot7 != "MachineGun" && old.slot7 == "MachineGun" || current.slot8 != "MachineGun" && old.slot8 == "MachineGun" || current.slot9 != "MachineGun" && old.slot9 == "MachineGun" || current.slot10 != "MachineGun" && old.slot10 == "MachineGun" || current.slot11 != "MachineGun" && old.slot11 == "MachineGun" || current.slot12 != "MachineGun" && old.slot12 == "MachineGun" || current.slot13 != "MachineGun" && old.slot13 == "MachineGun" || current.slot14 != "MachineGun" && old.slot14 == "MachineGun" || current.slot15 != "MachineGun" && old.slot15 == "MachineGun" || current.slot16 != "MachineGun" && old.slot16 == "MachineGun" || current.slot17 != "MachineGun" && old.slot17 == "MachineGun" || current.slot18 != "MachineGun" && old.slot18 == "MachineGun" || current.slot19 != "MachineGun" && old.slot19 == "MachineGun" || current.slot20 != "MachineGun"  && old.slot20 == "MachineGun")
 			{
-				if (vars.isdead == 0)
+				if (vars.isdead == 0 || current.map == "c04_Ship3FSecurityRoom")
 				{
 					vars.videotapeend = 1;
 					return true;
