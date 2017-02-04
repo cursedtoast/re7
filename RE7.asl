@@ -34,12 +34,14 @@ state("re7")
 	string128 slot19 : "re7.exe", 0x0707FCD0, 0x60, 0x20, 0xC0, 0x28, 0x80, 0x24;
 	string128 slot20 : "re7.exe", 0x0707FCD0, 0x60, 0x20, 0xC8, 0x28, 0x80, 0x24;
 	string128 map : "re7.exe", 0x070B9540, 0xE0, 0x80, 0x0;
+	int isdying : "re7.exe", 0x0707FCD0, 0x60;
 	//int coins : "re7.exe", 0x07047D58, 0x5A0, 0x170, 0x40, 0x80, 0x20;
 	//int files : "re7.exe", 0x07046398, 0xC0, 0x3B8, 0xB0, 0x78, 0x490; WIP. Coin and file count memory value is differnt per difficulty. This value is for Normal, apparently. Come back later when you found the difficulty memory value, I suppose.
 }
 
 startup
 {
+	settings.Add("version", false, "Autosplitter Version 2.2.0");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -156,6 +158,7 @@ init
 	vars.m19 = 0;
 	vars.fuse = 0;
 	vars.end = 0;
+	vars.isdead = 0;
 }
 
 
@@ -164,6 +167,77 @@ start
     return current.map == "c04_Ship3FInfirmaryPast"; 
 }
 
+update
+{
+    if (current.isdying == 0)
+    {
+        vars.isdead = 1;
+    }
+    else
+    {
+        vars.isdead = 0;
+    }
+	if (timer.CurrentPhase == TimerPhase.NotRunning)
+	{
+		vars.guesthouse = 0;
+		vars.boltcutters = 0;
+		vars.axe = 0;
+		vars.crowdoor = 0;
+		vars.tvroom = 0;
+		vars.oldhouse = 0;
+		vars.trailer = 0;
+		vars.welcome2family = 0;
+		vars.grenadelauncher = 0;
+		vars.albert = 0;
+		vars.injectedbitch = 0;
+		vars.necrotoxin = 0;
+		vars.miacomplete = 0;
+		vars.fuse3 = 0;
+		vars.powercable = 0;
+		vars.lugwrench = 0;
+		vars.videotapeend = 0;
+		vars.videotape = 0;
+		vars.usedlantern = 0;
+		vars.fuse2 = 0;
+		vars.boatcrash = 0;
+		vars.hittheroadjack = 0;
+		vars.jacksback = 0;
+		vars.head = 0;
+		vars.timebomb = 0;
+		vars.valve = 0;
+		vars.candle = 0;
+		vars.battery = 0;
+		vars.bluekeycard = 0;
+		vars.redkeycard = 0;
+		vars.snakekey = 0;
+		vars.magnum = 0;
+		vars.arm = 0;
+		vars.lantern = 0;
+		vars.crowkey = 0;
+		vars.crank = 0;
+		vars.stonestatue = 0;
+		vars.burnergrip = 0;
+		vars.burnernozzle = 0;
+		vars.reddoghead = 0;
+		vars.chainsaw = 0;
+		vars.chainsawduel = 0;
+		vars.scorpionkey = 0;
+		vars.dissectionroomkey = 0;
+		vars.whitedoghead = 0;
+		vars.bluedoghead = 0;
+		vars.clockpendulum = 0;
+		vars.woodenstatue = 0;
+		vars.oxstatue = 0;
+		vars.g17 = 0;
+		vars.carkey = 0;
+		vars.knife = 0;
+		vars.hatchkey = 0;
+		vars.m19 = 0;
+		vars.fuse = 0;
+		vars.end = 0;
+		vars.isdead = 0;
+	}
+}
 
 split
 {
@@ -358,10 +432,13 @@ split
 	{
 		if (vars.chainsawduel == 0)
 		{
-			if (old.slot1 == "ChainSaw" && current.slot1 != "ChainSaw" && current.isPaused == 0 || old.slot2 == "ChainSaw" && current.slot2 != "ChainSaw" && current.isPaused == 0 || old.slot3 == "ChainSaw" && current.slot3 != "ChainSaw" && current.isPaused == 0 || old.slot4 == "ChainSaw" && current.slot4 != "ChainSaw" && current.isPaused == 0 || old.slot5 == "ChainSaw" && current.slot5 != "ChainSaw" && current.isPaused == 0 || old.slot6 == "ChainSaw" && current.slot6 != "ChainSaw" && current.isPaused == 0 || old.slot7 == "ChainSaw" && current.slot7 != "ChainSaw" && current.isPaused == 0 || old.slot8 == "ChainSaw" && current.slot8 != "ChainSaw" && current.isPaused || old.slot9 == "ChainSaw" && current.slot9 != "ChainSaw" && current.isPaused == 0 || old.slot10 == "ChainSaw" && current.slot10 != "ChainSaw" && current.isPaused == 0 || old.slot11 == "ChainSaw" && current.slot11 != "ChainSaw" && current.isPaused == 0 || old.slot12 == "ChainSaw" && current.slot12 != "ChainSaw" && current.isPaused == 0 || old.slot13 == "ChainSaw" && current.slot13 != "ChainSaw" && current.isPaused || old.slot14 == "ChainSaw" && current.slot14 != "ChainSaw" && current.isPaused || old.slot15 == "ChainSaw" && current.slot15 != "ChainSaw" && current.isPaused == 0)
+			if (old.slot1 == "ChainSaw" && current.slot1 != "ChainSaw" || old.slot2 == "ChainSaw" && current.slot2 != "ChainSaw" || old.slot3 == "ChainSaw" && current.slot3 != "ChainSaw" || old.slot4 == "ChainSaw" && current.slot4 != "ChainSaw" || old.slot5 == "ChainSaw" && current.slot5 != "ChainSaw" || old.slot6 == "ChainSaw" && current.slot6 != "ChainSaw" || old.slot7 == "ChainSaw" && current.slot7 != "ChainSaw" || old.slot8 == "ChainSaw" && current.slot8 != "ChainSaw" && current.isPaused || old.slot9 == "ChainSaw" && current.slot9 != "ChainSaw" || old.slot10 == "ChainSaw" && current.slot10 != "ChainSaw" || old.slot11 == "ChainSaw" && current.slot11 != "ChainSaw" || old.slot12 == "ChainSaw" && current.slot12 != "ChainSaw" || old.slot13 == "ChainSaw" && current.slot13 != "ChainSaw" && current.isPaused || old.slot14 == "ChainSaw" && current.slot14 != "ChainSaw" && current.isPaused || old.slot15 == "ChainSaw" && current.slot15 != "ChainSaw")
 			{
-				vars.chainsawduel = 1;
-				return true;
+				if (vars.isdead == 0)
+				{
+					vars.chainsawduel = 1;
+					return true;
+				}
 			}
 		}
 	}
@@ -569,8 +646,11 @@ split
 		{
 			if (old.slot1 == "SerumComplete" && current.slot1 != "SerumComplete" && current.isPaused == 0 || old.slot2 == "SerumComplete" && current.slot2 != "SerumComplete" && current.isPaused == 0 || old.slot3 == "SerumComplete" && current.slot3 != "SerumComplete" && current.isPaused == 0 || old.slot4 == "SerumComplete" && current.slot4 != "SerumComplete" && current.isPaused == 0 || old.slot5 == "SerumComplete" && current.slot5 != "SerumComplete" && current.isPaused == 0 || old.slot6 == "SerumComplete" && current.slot6 != "SerumComplete" && current.isPaused == 0 || old.slot7 == "SerumComplete" && current.slot7 != "SerumComplete" && current.isPaused == 0 || old.slot8 == "SerumComplete" && current.slot8 != "SerumComplete" && current.isPaused == 0 || old.slot9 == "SerumComplete" && current.slot9 != "SerumComplete" && current.isPaused == 0 || old.slot10 == "SerumComplete" && current.slot10 != "SerumComplete" && current.isPaused == 0 || old.slot11 == "SerumComplete" && current.slot11 != "SerumComplete" && current.isPaused == 0 || old.slot12 == "SerumComplete" && current.slot12 != "SerumComplete" && current.isPaused == 0 || old.slot13 == "SerumComplete" && current.slot13 != "SerumComplete" && current.isPaused == 0 || old.slot14 == "SerumComplete" && current.slot14 != "SerumComplete" && current.isPaused == 0 || old.slot15 == "SerumComplete" && current.slot15 != "SerumComplete" && current.isPaused == 0 || old.slot16 == "SerumComplete" && current.slot16 != "SerumComplete" && current.isPaused == 0 || old.slot17 == "SerumComplete" && current.slot17 != "SerumComplete" && current.isPaused == 0 || old.slot18 == "SerumComplete" && current.slot18 != "SerumComplete" && current.isPaused == 0 || old.slot19 == "SerumComplete" && current.slot19 != "SerumComplete" && current.isPaused == 0 || old.slot20 == "SerumComplete" && current.slot20 != "SerumComplete" && current.isPaused == 0)
 			{
-				vars.hittheroadjack = 1;
-				return true;
+				if (vars.isdead == 0)
+				{
+					vars.hittheroadjack = 1;
+					return true;
+				}
 			}
 		}
 	}
@@ -602,8 +682,11 @@ split
 		{
 			if (old.slot1 == "Lantern" && current.slot1 != "Lantern" && current.isPaused == 0 || old.slot2 == "Lantern" && current.slot2 != "Lantern" && current.isPaused == 0 || old.slot3 == "Lantern" && current.slot3 != "Lantern" && current.isPaused == 0 || old.slot4 == "Lantern" && current.slot4 != "Lantern" && current.isPaused == 0 || old.slot5 == "Lantern" && current.slot5 != "Lantern" && current.isPaused == 0 || old.slot6 == "Lantern" && current.slot6 != "Lantern" && current.isPaused == 0 || old.slot7 == "Lantern" && current.slot7 != "Lantern" && current.isPaused == 0 || old.slot8 == "Lantern" && current.slot8 != "Lantern" && current.isPaused == 0 || old.slot9 == "Lantern" && current.slot9 != "Lantern" && current.isPaused == 0 || old.slot10 == "Lantern" && current.slot10 != "Lantern" && current.isPaused == 0 || old.slot11 == "Lantern" && current.slot11 != "Lantern" && current.isPaused == 0 || old.slot12 == "Lantern" && current.slot12 != "Lantern" && current.isPaused == 0 || old.slot13 == "Lantern" && current.slot13 != "Lantern" && current.isPaused == 0 || old.slot14 == "Lantern" && current.slot14 != "Lantern" && current.isPaused == 0 || old.slot15 == "Lantern" && current.slot15 != "Lantern" && current.isPaused == 0 || old.slot16 == "Lantern" && current.slot16 != "Lantern" && current.isPaused == 0 || old.slot17 == "Lantern" && current.slot17 != "Lantern" && current.isPaused == 0 || old.slot18 == "Lantern" && current.slot18 != "Lantern" && current.isPaused == 0 || old.slot19 == "Lantern" && current.slot19 != "Lantern" && current.isPaused == 0 || old.slot20 == "Lantern" && current.slot20 != "Lantern" && current.isPaused == 0)
 			{
-				vars.usedlantern = 1;
-				return true;
+				if (vars.isdead == 0)
+				{
+					vars.usedlantern = 1;
+					return true;
+				}
 			}
 		}
 	}
@@ -624,8 +707,11 @@ split
 		{
 			if (current.slot1 != "MachineGun" && old.slot1 == "MachineGun" || current.slot2 != "MachineGun" && old.slot2 == "MachineGun" || current.slot3 != "MachineGun" && old.slot3 == "MachineGun" || current.slot4 != "MachineGun" && old.slot4 == "MachineGun" || current.slot5 != "MachineGun" && old.slot5 == "MachineGun" || current.slot6 != "MachineGun" && old.slot6 == "MachineGun" || current.slot7 != "MachineGun" && old.slot7 == "MachineGun" || current.slot8 != "MachineGun" && old.slot8 == "MachineGun" || current.slot9 != "MachineGun" && old.slot9 == "MachineGun" || current.slot10 != "MachineGun" && old.slot10 == "MachineGun" || current.slot11 != "MachineGun" && old.slot11 == "MachineGun" || current.slot12 != "MachineGun" && old.slot12 == "MachineGun" || current.slot13 != "MachineGun" && old.slot13 == "MachineGun" || current.slot14 != "MachineGun" && old.slot14 == "MachineGun" || current.slot15 != "MachineGun" && old.slot15 == "MachineGun" || current.slot16 != "MachineGun" && old.slot16 == "MachineGun" || current.slot17 != "MachineGun" && old.slot17 == "MachineGun" || current.slot18 != "MachineGun" && old.slot18 == "MachineGun" || current.slot19 != "MachineGun" && old.slot19 == "MachineGun" || current.slot20 != "MachineGun"  && old.slot20 == "MachineGun")
 			{
-				vars.videotapeend = 1;
-				return true;
+				if (vars.isdead == 0)
+				{
+					vars.videotapeend = 1;
+					return true;
+				}
 			}
 		}
 	}
@@ -665,6 +751,11 @@ split
 						return true;
 					}
 				}
+				else
+				{
+					vars.fuse3 = 1;
+					return true;
+				}
 			}
 		}
 	}
@@ -696,8 +787,11 @@ split
 		{
 			if (old.slot1 == "SerumTypeE" && current.slot1 != "SerumTypeE" && current.isPaused == 0 || old.slot2 == "SerumTypeE" && current.slot2 != "SerumTypeE" && current.isPaused == 0 || old.slot3 == "SerumTypeE" && current.slot3 != "SerumTypeE" && current.isPaused == 0 || old.slot4 == "SerumTypeE" && current.slot4 != "SerumTypeE" && current.isPaused == 0 || old.slot5 == "SerumTypeE" && current.slot5 != "SerumTypeE" && current.isPaused == 0 || old.slot6 == "SerumTypeE" && current.slot6 != "SerumTypeE" && current.isPaused == 0 || old.slot7 == "SerumTypeE" && current.slot7 != "SerumTypeE" && current.isPaused == 0 || old.slot8 == "SerumTypeE" && current.slot8 != "SerumTypeE" && current.isPaused == 0 || old.slot9 == "SerumTypeE" && current.slot9 != "SerumTypeE" && current.isPaused == 0 || old.slot10 == "SerumTypeE" && current.slot10 != "SerumTypeE" && current.isPaused == 0 || old.slot11 == "SerumTypeE" && current.slot11 != "SerumTypeE" && current.isPaused == 0 || old.slot12 == "SerumTypeE" && current.slot12 != "SerumTypeE" && current.isPaused == 0 || old.slot13 == "SerumTypeE" && current.slot13 != "SerumTypeE" && current.isPaused == 0 || old.slot14 == "SerumTypeE" && current.slot14 != "SerumTypeE" && current.isPaused == 0 || old.slot15 == "SerumTypeE" && current.slot15 != "SerumTypeE" && current.isPaused == 0 || old.slot16 == "SerumTypeE" && current.slot16 != "SerumTypeE" && current.isPaused == 0 || old.slot17 == "SerumTypeE" && current.slot17 != "SerumTypeE" && current.isPaused == 0 || old.slot18 == "SerumTypeE" && current.slot18 != "SerumTypeE" && current.isPaused == 0 || old.slot19 == "SerumTypeE" && current.slot19 != "SerumTypeE" && current.isPaused == 0 || old.slot20 == "SerumTypeE" && current.slot20 != "SerumTypeE" && current.isPaused == 0)
 			{
-				vars.injectedbitch = 1;
-				return true;
+				if (vars.isdying == 0)
+				{
+					vars.injectedbitch = 1;
+					return true;
+				}
 			}
 		}
 	}
