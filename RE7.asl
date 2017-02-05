@@ -41,7 +41,7 @@ state("re7")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 2.3.5");
+	settings.Add("version", false, "Autosplitter Version 2.3.7");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -92,7 +92,7 @@ startup
 	settings.Add("videotapeend", false, "Mia Tape End");
 	settings.Add("lugwrench", false, "Lug Wrench");
 	settings.Add("powercable", false, "Power Cable");
-	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship)");
+	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship) ONLY USE IF FUSE 2 IS CHECKED");
 	settings.Add("miacomplete", false, "Mia Complete");
 	settings.Add("necrotoxin", false, "Necrotoxin");
 	settings.Add("injectedbitch", false, "Injected Evie");
@@ -648,10 +648,165 @@ split
 			{
 				if (vars.isdead == 0)
 				{
-					if (current.slot1 != "SerumComplete" || current.slot2 != "SerumComplete" || current.slot3 != "SerumComplete" || current.slot4 != "SerumComplete" || current.slot5 != "SerumComplete" || current.slot6 != "SerumComplete" || current.slot7 != "SerumComplete" || current.slot8 != "SerumComplete" || current.slot9 != "SerumComplete" || current.slot10 != "SerumComplete" || current.slot11 != "SerumComplete" || current.slot12 != "SerumComplete" || current.slot13 != "SerumComplete" || current.slot14 != "SerumComplete" || current.slot15 != "SerumComplete" || current.slot16 != "SerumComplete" || current.slot17 != "SerumComplete" || current.slot18 != "SerumComplete" || current.slot19 != "SerumComplete" || current.slot20 != "SerumComplete")
+					if (current.slot1 == "SerumComplete")
 					{
-						vars.hittheroadjack = 1;
-						return true;
+						if (current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;
+						}
+					}
+					else if (current.slot2 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot3 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot4 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot5 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot6 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot7 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot8 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot9 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot10 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot11 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot12 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot13 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot14 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot15 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot16 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot17 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot18 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot19 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot19 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot20 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
+					}
+					else if (current.slot20 == "SerumComplete")
+					{
+						if (current.slot1 != "SerumComplete" && current.slot2 != "SerumComplete" && current.slot3 != "SerumComplete" && current.slot4 != "SerumComplete" && current.slot5 != "SerumComplete" && current.slot6 != "SerumComplete" && current.slot7 != "SerumComplete" && current.slot8 != "SerumComplete" && current.slot9 != "SerumComplete" && current.slot10 != "SerumComplete" && current.slot11 != "SerumComplete" && current.slot12 != "SerumComplete" && current.slot13 != "SerumComplete" && current.slot14 != "SerumComplete" && current.slot15 != "SerumComplete" && current.slot16 != "SerumComplete" && current.slot17 != "SerumComplete" && current.slot18 != "SerumComplete" && current.slot19 != "SerumComplete")
+						{
+							vars.hittheroadjack = 1;
+							return true;	
+						}
 					}
 				}
 			}
@@ -789,7 +944,7 @@ split
 		if (vars.injectedbitch == 0)
 		{
 			if (old.slot1 == "SerumTypeE" && current.slot1 != "SerumTypeE" || old.slot2 == "SerumTypeE" && current.slot2 != "SerumTypeE" || old.slot3 == "SerumTypeE" && current.slot3 != "SerumTypeE" || old.slot4 == "SerumTypeE" && current.slot4 != "SerumTypeE" || old.slot5 == "SerumTypeE" && current.slot5 != "SerumTypeE" || old.slot6 == "SerumTypeE" && current.slot6 != "SerumTypeE" || old.slot7 == "SerumTypeE" && current.slot7 != "SerumTypeE" || old.slot8 == "SerumTypeE" && current.slot8 != "SerumTypeE" || old.slot9 == "SerumTypeE" && current.slot9 != "SerumTypeE" || old.slot10 == "SerumTypeE" && current.slot10 != "SerumTypeE" || old.slot11 == "SerumTypeE" && current.slot11 != "SerumTypeE" || old.slot12 == "SerumTypeE" && current.slot12 != "SerumTypeE" || old.slot13 == "SerumTypeE" && current.slot13 != "SerumTypeE" || old.slot14 == "SerumTypeE" && current.slot14 != "SerumTypeE" || old.slot15 == "SerumTypeE" && current.slot15 != "SerumTypeE" || old.slot16 == "SerumTypeE" && current.slot16 != "SerumTypeE" || old.slot17 == "SerumTypeE" && current.slot17 != "SerumTypeE" || old.slot18 == "SerumTypeE" && current.slot18 != "SerumTypeE" || old.slot19 == "SerumTypeE" && current.slot19 != "SerumTypeE" || old.slot20 == "SerumTypeE" && current.slot20 != "SerumTypeE")			{
-				if (current.slot1 != "SerumTypeE" || current.slot2 != "SerumTypeE" || current.slot3 != "SerumTypeE" || current.slot4 != "SerumTypeE" || current.slot5 != "SerumTypeE" || current.slot6 != "SerumTypeE" || current.slot7 != "SerumTypeE" || current.slot8 != "SerumTypeE" || current.slot9 != "SerumTypeE" || current.slot10 != "SerumTypeE" || current.slot11 != "SerumTypeE" || current.slot12 != "SerumTypeE" || current.slot13 != "SerumTypeE" || current.slot14 != "SerumTypeE" || current.slot15 != "SerumTypeE" || current.slot16 != "SerumTypeE" || current.slot17 != "SerumTypeE" || current.slot18 != "SerumTypeE" || current.slot19 != "SerumTypeE" || current.slot20 != "SerumTypeE")
+				if (current.slot1 != "SerumTypeE" && current.slot2 != "SerumTypeE" && current.slot3 != "SerumTypeE" && current.slot4 != "SerumTypeE" && current.slot5 != "SerumTypeE" && current.slot6 != "SerumTypeE" && current.slot7 != "SerumTypeE" && current.slot8 != "SerumTypeE" && current.slot9 != "SerumTypeE" && current.slot10 != "SerumTypeE" && current.slot11 != "SerumTypeE" && current.slot12 != "SerumTypeE" && current.slot13 != "SerumTypeE" && current.slot14 != "SerumTypeE" && current.slot15 != "SerumTypeE" && current.slot16 != "SerumTypeE" && current.slot17 != "SerumTypeE" && current.slot18 != "SerumTypeE" && current.slot19 != "SerumTypeE" && current.slot20 != "SerumTypeE")
 				{
 					vars.injectedbitch = 1;
 					return true;
