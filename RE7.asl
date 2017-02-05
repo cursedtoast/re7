@@ -41,7 +41,7 @@ state("re7")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 2.3.4");
+	settings.Add("version", false, "Autosplitter Version 2.3.5");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -648,8 +648,11 @@ split
 			{
 				if (vars.isdead == 0)
 				{
-					vars.hittheroadjack = 1;
-					return true;
+					if (current.slot1 != "SerumComplete" || current.slot2 != "SerumComplete" || current.slot3 != "SerumComplete" || current.slot4 != "SerumComplete" || current.slot5 != "SerumComplete" || current.slot6 != "SerumComplete" || current.slot7 != "SerumComplete" || current.slot8 != "SerumComplete" || current.slot9 != "SerumComplete" || current.slot10 != "SerumComplete" || current.slot11 != "SerumComplete" || current.slot12 != "SerumComplete" || current.slot13 != "SerumComplete" || current.slot14 != "SerumComplete" || current.slot15 != "SerumComplete" || current.slot16 != "SerumComplete" || current.slot17 != "SerumComplete" || current.slot18 != "SerumComplete" || current.slot19 != "SerumComplete" || current.slot20 != "SerumComplete")
+					{
+						vars.hittheroadjack = 1;
+						return true;
+					}
 				}
 			}
 		}
@@ -684,8 +687,11 @@ split
 			{
 				if (vars.isdead == 0)
 				{
-					vars.usedlantern = 1;
-					return true;
+					if (current.slot1 != "Lantern" || current.slot2 != "Lantern" || current.slot3 != "Lantern" || current.slot4 != "Lantern" || current.slot5 != "Lantern" || current.slot6 != "Lantern" || current.slot7 != "Lantern" || current.slot8 != "Lantern" || current.slot9 != "Lantern" || current.slot10 != "Lantern" || current.slot11 != "Lantern" || current.slot12 != "Lantern" || current.slot13 != "Lantern" || current.slot14 != "Lantern" || current.slot15 != "Lantern" || current.slot16 != "Lantern" || current.slot17 != "Lantern" || current.slot18 != "Lantern" || current.slot19 != "Lantern" || current.slot20 != "Lantern")
+					{
+						vars.usedlantern = 1;
+						return true;
+					}
 				}
 			}
 		}
@@ -738,7 +744,7 @@ split
 	{
 		if (vars.fuse3 == 0)
 		{
-			if (current.slot1 == "FuseCh4"  && old.slot1 != "FuseCh4" || current.slot2 == "FuseCh4" && old.slot2 != "FuseCh4" || current.slot3 == "FuseCh4" && old.slot3 != "FuseCh4" || current.slot4 == "FuseCh4" && old.slot4!= "FuseCh4" || current.slot5 == "FuseCh4" && old.slot5 != "FuseCh4" || current.slot6 == "FuseCh4" && old.slot6 != "FuseCh4" || current.slot7 == "FuseCh4" && old.slot7 != "FuseCh4" || current.slot8 == "FuseCh4" && old.slot8 != "FuseCh4" || current.slot9 == "FuseCh4" && old.slot9 != "FuseCh4" || current.slot10 == "FuseCh4" && old.slot10 != "FuseCh4" || current.slot11 == "FuseCh4" && old.slot11 != "FuseCh4" || current.slot12 == "FuseCh4" && old.slot12 != "FuseCh4" || current.slot13 == "FuseCh4" && old.slot13 != "FuseCh4" || current.slot14 == "FuseCh4" && old.slot14 != "FuseCh4" || current.slot15 == "FuseCh4" && old.slot15 != "FuseCh4" || current.slot16 == "FuseCh4" && old.slot16 != "FuseCh4" || current.slot17 == "FuseCh4" && old.slot17 != "FuseCh4" || current.slot18 == "FuseCh4" && old.slot18 != "FuseCh4" || current.slot19 == "FuseCh4" && old.slot19 != "FuseCh4" || current.slot20 == "FuseCh4" && old.slot20 != "FuseCh4")
+			if (current.slot1 == "FuseCh4" && old.slot1 != "FuseCh4" || current.slot2 == "FuseCh4" && old.slot2 != "FuseCh4" || current.slot3 == "FuseCh4" && old.slot3 != "FuseCh4" || current.slot4 == "FuseCh4" && old.slot4!= "FuseCh4" || current.slot5 == "FuseCh4" && old.slot5 != "FuseCh4" || current.slot6 == "FuseCh4" && old.slot6 != "FuseCh4" || current.slot7 == "FuseCh4" && old.slot7 != "FuseCh4" || current.slot8 == "FuseCh4" && old.slot8 != "FuseCh4" || current.slot9 == "FuseCh4" && old.slot9 != "FuseCh4" || current.slot10 == "FuseCh4" && old.slot10 != "FuseCh4" || current.slot11 == "FuseCh4" && old.slot11 != "FuseCh4" || current.slot12 == "FuseCh4" && old.slot12 != "FuseCh4" || current.slot13 == "FuseCh4" && old.slot13 != "FuseCh4" || current.slot14 == "FuseCh4" && old.slot14 != "FuseCh4" || current.slot15 == "FuseCh4" && old.slot15 != "FuseCh4" || current.slot16 == "FuseCh4" && old.slot16 != "FuseCh4" || current.slot17 == "FuseCh4" && old.slot17 != "FuseCh4" || current.slot18 == "FuseCh4" && old.slot18 != "FuseCh4" || current.slot19 == "FuseCh4" && old.slot19 != "FuseCh4" || current.slot20 == "FuseCh4" && old.slot20 != "FuseCh4")
 			{
 				if (settings["fuse2"])
 				{
@@ -782,10 +788,12 @@ split
 	{
 		if (vars.injectedbitch == 0)
 		{
-			if (old.slot1 == "SerumTypeE" && current.slot1 != "SerumTypeE" && current.isPaused == 0 || old.slot2 == "SerumTypeE" && current.slot2 != "SerumTypeE" && current.isPaused == 0 || old.slot3 == "SerumTypeE" && current.slot3 != "SerumTypeE" && current.isPaused == 0 || old.slot4 == "SerumTypeE" && current.slot4 != "SerumTypeE" && current.isPaused == 0 || old.slot5 == "SerumTypeE" && current.slot5 != "SerumTypeE" && current.isPaused == 0 || old.slot6 == "SerumTypeE" && current.slot6 != "SerumTypeE" && current.isPaused == 0 || old.slot7 == "SerumTypeE" && current.slot7 != "SerumTypeE" && current.isPaused == 0 || old.slot8 == "SerumTypeE" && current.slot8 != "SerumTypeE" && current.isPaused == 0 || old.slot9 == "SerumTypeE" && current.slot9 != "SerumTypeE" && current.isPaused == 0 || old.slot10 == "SerumTypeE" && current.slot10 != "SerumTypeE" && current.isPaused == 0 || old.slot11 == "SerumTypeE" && current.slot11 != "SerumTypeE" && current.isPaused == 0 || old.slot12 == "SerumTypeE" && current.slot12 != "SerumTypeE" && current.isPaused == 0 || old.slot13 == "SerumTypeE" && current.slot13 != "SerumTypeE" && current.isPaused == 0 || old.slot14 == "SerumTypeE" && current.slot14 != "SerumTypeE" && current.isPaused == 0 || old.slot15 == "SerumTypeE" && current.slot15 != "SerumTypeE" && current.isPaused == 0 || old.slot16 == "SerumTypeE" && current.slot16 != "SerumTypeE" && current.isPaused == 0 || old.slot17 == "SerumTypeE" && current.slot17 != "SerumTypeE" && current.isPaused == 0 || old.slot18 == "SerumTypeE" && current.slot18 != "SerumTypeE" && current.isPaused == 0 || old.slot19 == "SerumTypeE" && current.slot19 != "SerumTypeE" && current.isPaused == 0 || old.slot20 == "SerumTypeE" && current.slot20 != "SerumTypeE" && current.isPaused == 0)
-			{
-				vars.injectedbitch = 1;
-				return true;
+			if (old.slot1 == "SerumTypeE" && current.slot1 != "SerumTypeE" || old.slot2 == "SerumTypeE" && current.slot2 != "SerumTypeE" || old.slot3 == "SerumTypeE" && current.slot3 != "SerumTypeE" || old.slot4 == "SerumTypeE" && current.slot4 != "SerumTypeE" || old.slot5 == "SerumTypeE" && current.slot5 != "SerumTypeE" || old.slot6 == "SerumTypeE" && current.slot6 != "SerumTypeE" || old.slot7 == "SerumTypeE" && current.slot7 != "SerumTypeE" || old.slot8 == "SerumTypeE" && current.slot8 != "SerumTypeE" || old.slot9 == "SerumTypeE" && current.slot9 != "SerumTypeE" || old.slot10 == "SerumTypeE" && current.slot10 != "SerumTypeE" || old.slot11 == "SerumTypeE" && current.slot11 != "SerumTypeE" || old.slot12 == "SerumTypeE" && current.slot12 != "SerumTypeE" || old.slot13 == "SerumTypeE" && current.slot13 != "SerumTypeE" || old.slot14 == "SerumTypeE" && current.slot14 != "SerumTypeE" || old.slot15 == "SerumTypeE" && current.slot15 != "SerumTypeE" || old.slot16 == "SerumTypeE" && current.slot16 != "SerumTypeE" || old.slot17 == "SerumTypeE" && current.slot17 != "SerumTypeE" || old.slot18 == "SerumTypeE" && current.slot18 != "SerumTypeE" || old.slot19 == "SerumTypeE" && current.slot19 != "SerumTypeE" || old.slot20 == "SerumTypeE" && current.slot20 != "SerumTypeE")			{
+				if (current.slot1 != "SerumTypeE" || current.slot2 != "SerumTypeE" || current.slot3 != "SerumTypeE" || current.slot4 != "SerumTypeE" || current.slot5 != "SerumTypeE" || current.slot6 != "SerumTypeE" || current.slot7 != "SerumTypeE" || current.slot8 != "SerumTypeE" || current.slot9 != "SerumTypeE" || current.slot10 != "SerumTypeE" || current.slot11 != "SerumTypeE" || current.slot12 != "SerumTypeE" || current.slot13 != "SerumTypeE" || current.slot14 != "SerumTypeE" || current.slot15 != "SerumTypeE" || current.slot16 != "SerumTypeE" || current.slot17 != "SerumTypeE" || current.slot18 != "SerumTypeE" || current.slot19 != "SerumTypeE" || current.slot20 != "SerumTypeE")
+				{
+					vars.injectedbitch = 1;
+					return true;
+				}
 			}
 		}
 	}
