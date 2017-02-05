@@ -87,12 +87,12 @@ startup
 	settings.Add("jacksback", false, "Completed Serum");
 	settings.Add("hittheroadjack", false, "Injected Jack");
 	settings.Add("boatcrash", false, "Mia Start");
-	settings.Add("fuse2", false, "Fuse (ship)");
+	settings.Add("fuse2", false, "Fuse 2 (ship)");
 	settings.Add("videotape", false, "Mia Videotape (picked up)");
 	settings.Add("videotapeend", false, "Mia Tape End");
 	settings.Add("lugwrench", false, "Lug Wrench");
 	settings.Add("powercable", false, "Power Cable");
-	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship) ONLY USE IF RETRIEVED FUSE IS CHECKED");
+	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship) ONLY USE IF FUSE 2 IS CHECKED!");
 	settings.Add("miacomplete", false, "Mia Complete");
 	settings.Add("necrotoxin", false, "Necrotoxin");
 	settings.Add("injectedbitch", false, "Injected Evie");
