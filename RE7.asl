@@ -41,7 +41,7 @@ state("re7")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 2.3.3");
+	settings.Add("version", false, "Autosplitter Version 2.3.4");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
