@@ -41,7 +41,7 @@ state("re7")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 2.3.7");
+	settings.Add("version", false, "Autosplitter Version 2.3.8");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -92,7 +92,7 @@ startup
 	settings.Add("videotapeend", false, "Mia Tape End");
 	settings.Add("lugwrench", false, "Lug Wrench");
 	settings.Add("powercable", false, "Power Cable");
-	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship) ONLY USE IF FUSE 2 IS CHECKED!");
+	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship)");
 	settings.Add("miacomplete", false, "Mia Complete");
 	settings.Add("necrotoxin", false, "Necrotoxin");
 	settings.Add("injectedbitch", false, "Injected Evie");
@@ -905,14 +905,20 @@ split
 				{
 					if (vars.fuse2 == 1)
 					{
-						vars.fuse3 = 1;
-						return true;
+						if (current.map == "c04_Ship1FCorridor")
+						{
+							vars.fuse3 = 1;
+							return true;
+						}
 					}
 				}
 				else
 				{
-					vars.fuse3 = 1;
-					return true;
+					if (current.map == "c04_Ship1FCorridor")
+					{
+						vars.fuse3 = 1;
+						return true;
+					}
 				}
 			}
 		}
