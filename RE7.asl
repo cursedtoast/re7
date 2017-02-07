@@ -8,8 +8,9 @@
 //mgr.inz.Player - inventory memory value support
 //Theumer115 - inventory memory value support
 //DarkByte - inventory memory value support
+//Nexusphobiker - helping me find the most updated pointers in the 2/6/2017 RE7 update, and for teaching me how to find them again in the future.
 
-state("re7")
+state("re7", "1.1")
 {
 	int isPaused : "re7.exe", 0x0707C290, 0x28, 0x30, 0x58, 0x730;
 	float igt : "re7.exe", 0x0704D5C8, 0x28, 0x428, 0x40, 0x28, 0x120;
@@ -39,9 +40,36 @@ state("re7")
 	//int files : "re7.exe", 0x07046398, 0xC0, 0x3B8, 0xB0, 0x78, 0x490; WIP. Coin and file count memory value is differnt per difficulty. This value is for Normal, apparently. Come back later when you found the difficulty memory value, I suppose.
 }
 
+state("re7", "1.2")
+{
+	int isPaused : "re7.exe", 0x708E260, 0x28, 0x30, 0x58, 0x730;
+	string128 slot1 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x30, 0x28, 0x80, 0x24;
+	string128 slot2 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x38, 0x28, 0x80, 0x24;
+	string128 slot3 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x40, 0x28, 0x80, 0x24;
+	string128 slot4 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x48, 0x28, 0x80, 0x24;
+	string128 slot5 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x50, 0x28, 0x80, 0x24;
+	string128 slot6 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x58, 0x28, 0x80, 0x24;
+	string128 slot7 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x60, 0x28, 0x80, 0x24;
+	string128 slot8 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x68, 0x28, 0x80, 0x24;
+	string128 slot9 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x70, 0x28, 0x80, 0x24;
+	string128 slot10 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x78, 0x28, 0x80, 0x24;
+	string128 slot11 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x80, 0x28, 0x80, 0x24;
+	string128 slot12 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x88, 0x28, 0x80, 0x24;
+	string128 slot13 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x90, 0x28, 0x80, 0x24;
+	string128 slot14 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0x98, 0x28, 0x80, 0x24;
+	string128 slot15 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0xA0, 0x28, 0x80, 0x24;
+	string128 slot16 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0xA8, 0x28, 0x80, 0x24;
+	string128 slot17 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0xB0, 0x28, 0x80, 0x24;
+	string128 slot18 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0xB8, 0x28, 0x80, 0x24;
+	string128 slot19 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0xC0, 0x28, 0x80, 0x24;
+	string128 slot20 : "re7.exe", 0x07091CA0, 0x60, 0x20, 0xC8, 0x28, 0x80, 0x24;
+	string128 map : "re7.exe", 0x7058360, 0x700, 0x0;
+	int isdying : "re7.exe", 0x07091CA0, 0x60;
+}
+
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 2.3.8");
+	settings.Add("version", false, "Autosplitter Version 3.0.0");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -159,6 +187,14 @@ init
 	vars.fuse = 0;
 	vars.end = 0;
 	vars.isdead = 0;
+	if (modules.First().ModuleMemorySize == 241680384)
+	{
+		version = "1.2";
+	}
+	else
+	{
+		version = "1.1";
+	}
 }
 
 
@@ -952,8 +988,11 @@ split
 			if (old.slot1 == "SerumTypeE" && current.slot1 != "SerumTypeE" || old.slot2 == "SerumTypeE" && current.slot2 != "SerumTypeE" || old.slot3 == "SerumTypeE" && current.slot3 != "SerumTypeE" || old.slot4 == "SerumTypeE" && current.slot4 != "SerumTypeE" || old.slot5 == "SerumTypeE" && current.slot5 != "SerumTypeE" || old.slot6 == "SerumTypeE" && current.slot6 != "SerumTypeE" || old.slot7 == "SerumTypeE" && current.slot7 != "SerumTypeE" || old.slot8 == "SerumTypeE" && current.slot8 != "SerumTypeE" || old.slot9 == "SerumTypeE" && current.slot9 != "SerumTypeE" || old.slot10 == "SerumTypeE" && current.slot10 != "SerumTypeE" || old.slot11 == "SerumTypeE" && current.slot11 != "SerumTypeE" || old.slot12 == "SerumTypeE" && current.slot12 != "SerumTypeE" || old.slot13 == "SerumTypeE" && current.slot13 != "SerumTypeE" || old.slot14 == "SerumTypeE" && current.slot14 != "SerumTypeE" || old.slot15 == "SerumTypeE" && current.slot15 != "SerumTypeE" || old.slot16 == "SerumTypeE" && current.slot16 != "SerumTypeE" || old.slot17 == "SerumTypeE" && current.slot17 != "SerumTypeE" || old.slot18 == "SerumTypeE" && current.slot18 != "SerumTypeE" || old.slot19 == "SerumTypeE" && current.slot19 != "SerumTypeE" || old.slot20 == "SerumTypeE" && current.slot20 != "SerumTypeE")			{
 				if (current.slot1 != "SerumTypeE" && current.slot2 != "SerumTypeE" && current.slot3 != "SerumTypeE" && current.slot4 != "SerumTypeE" && current.slot5 != "SerumTypeE" && current.slot6 != "SerumTypeE" && current.slot7 != "SerumTypeE" && current.slot8 != "SerumTypeE" && current.slot9 != "SerumTypeE" && current.slot10 != "SerumTypeE" && current.slot11 != "SerumTypeE" && current.slot12 != "SerumTypeE" && current.slot13 != "SerumTypeE" && current.slot14 != "SerumTypeE" && current.slot15 != "SerumTypeE" && current.slot16 != "SerumTypeE" && current.slot17 != "SerumTypeE" && current.slot18 != "SerumTypeE" && current.slot19 != "SerumTypeE" && current.slot20 != "SerumTypeE")
 				{
-					vars.injectedbitch = 1;
-					return true;
+					if (vars.isdead == 0)
+					{
+						vars.injectedbitch = 1;
+						return true;
+					}
 				}
 			}
 		}
