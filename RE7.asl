@@ -472,7 +472,7 @@ split
 			{
 				if (vars.isdead == 0)
 				{
-					if (current.slot1 == "3CrestKeyC" || current.slot2 == "3CrestKeyC" || current.slot3 == "3CrestKeyC" || current.slot4 == "3CrestKeyC" || current.slot5 == "3CrestKeyC" || current.slot6 == "3CrestKeyC" || current.slot7 == "3CrestKeyC" || current.slot8 == "3CrestKeyC" || current.slot9 == "3CrestKeyC" || current.slot10 == "3CrestKeyC" || current.slot11 == "3CrestKeyC" || current.slot12 == "3CrestKeyC" || current.slot13 == "3CrestKeyC" || current.slot14 == "3CrestKeyC" || current.slot15 == "3CrestKeyC" || current.slot16 == "3CrestKeyC" || current.slot17 == "3CrestKeyC" || current.slot18 == "3CrestKeyC" || current.slot19 == "3CrestKeyC" || current.slot20 == "3CrestKeyC")
+					if (current.slot1 != "ChainSaw" && current.slot2 != "ChainSaw" && current.slot3 != "ChainSaw" && current.slot4 != "ChainSaw" && current.slot5 != "ChainSaw" && current.slot6 != "ChainSaw" && current.slot7 != "ChainSaw" && current.slot8 != "ChainSaw" && current.slot9 != "ChainSaw" && current.slot10 != "ChainSaw" && current.slot11 != "ChainSaw" && current.slot12 != "ChainSaw" && current.slot13 != "ChainSaw" && current.slot14 != "ChainSaw" && current.slot15 != "ChainSaw")
 					{
 						vars.chainsawduel = 1;
 						return true;
