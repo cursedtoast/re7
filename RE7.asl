@@ -237,7 +237,7 @@ start
 update
 {
 	
-	print(modules.First().ModuleMemorySize.ToString());
+    //print(modules.First().ModuleMemorySize.ToString());
     if (current.isdying == 0)
     {
         vars.isdead = 1;
