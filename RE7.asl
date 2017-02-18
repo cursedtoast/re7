@@ -153,6 +153,8 @@ startup
 	settings.Add("injectedbitch", false, "Injected Evie");
 	settings.Add("albert", false, "Albert Gun (Platimes over)");
 	settings.Add("end", false, "End");
+
+
 }
 
 init
@@ -236,7 +238,30 @@ start
 
 update
 {
-	
+	List<string> list = new List<string>();
+	list.Add(current.slot1);
+	list.Add(current.slot2);
+	list.Add(current.slot3);
+	list.Add(current.slot4);
+	list.Add(current.slot5);
+	list.Add(current.slot6);
+	list.Add(current.slot7);
+	list.Add(current.slot8);
+	list.Add(current.slot9);
+	list.Add(current.slot10);
+	list.Add(current.slot11);
+	list.Add(current.slot12);
+	list.Add(current.slot13);
+	list.Add(current.slot14);
+	list.Add(current.slot15);
+	list.Add(current.slot16);
+	list.Add(current.slot17);
+	list.Add(current.slot18);
+	list.Add(current.slot19);
+	list.Add(current.slot20);
+	string[] inventorySlots = list.ToArray();
+	vars.inventorySlots = inventorySlots;
+
     //print(modules.First().ModuleMemorySize.ToString());
     if (current.isdying == 0)
     {
@@ -305,215 +330,135 @@ update
 		vars.fuse = 0;
 		vars.end = 0;
 		vars.isdead = 0;
+		vars.haschainsaw = 0;
 	}
 }
 
+
+
 split
 {
-	if (settings["guesthouse"])
-	{
-		if (vars.guesthouse == 0)
-		{
-			if (current.map == "c01_Corridor01")
-			{
-				vars.guesthouse = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["boltcutters"])
-	{
-		if (vars.boltcutters == 0)
-		{
-			if (current.slot1 == "ChainCutter" || current.slot2 == "ChainCutter" || current.slot3 == "ChainCutter" || current.slot4 == "ChainCutter" || current.slot5 == "ChainCutter" || current.slot6 == "ChainCutter" || current.slot7 == "ChainCutter" || current.slot8 == "ChainCutter" || current.slot9 == "ChainCutter" || current.slot10 == "ChainCutter" || current.slot11 == "ChainCutter" || current.slot12 == "ChainCutter" || current.slot13 == "ChainCutter" || current.slot14 == "ChainCutter" || current.slot15 == "ChainCutter" || current.slot16 == "ChainCutter" || current.slot17 == "ChainCutter" || current.slot18 == "ChainCutter" || current.slot19 == "ChainCutter" || current.slot20 == "ChainCutter")
-			{
-				vars.boltcutters = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["axe"])
-	{
-		if (vars.axe == 0)
-		{
-			if (current.slot1 == "HandAxe" || current.slot2 == "HandAxe" || current.slot3 == "HandAxe" || current.slot4 == "HandAxe" || current.slot5 == "HandAxe" || current.slot6 == "HandAxe" || current.slot7 == "HandAxe" || current.slot8 == "HandAxe" || current.slot9 == "HandAxe" || current.slot10 == "HandAxe" || current.slot11 == "HandAxe" || current.slot12 == "HandAxe" || current.slot13 == "HandAxe" || current.slot14 == "HandAxe" || current.slot15 == "HandAxe" || current.slot16 == "HandAxe" || current.slot17 == "HandAxe" || current.slot18 == "HandAxe" || current.slot19 == "HandAxe" || current.slot20 == "HandAxe")
-			{
-				vars.axe = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["fuse"])
-	{
-		if (vars.fuse == 0)
-		{
-			if (current.slot1 == "Fuse" || current.slot2 == "Fuse" || current.slot3 == "Fuse" || current.slot4 == "Fuse" || current.slot5 == "Fuse" || current.slot6 == "Fuse" || current.slot7 == "Fuse" || current.slot8 == "Fuse" || current.slot9 == "Fuse" || current.slot10 == "Fuse" || current.slot11 == "Fuse" || current.slot12 == "Fuse" || current.slot13 == "Fuse" || current.slot14 == "Fuse" || current.slot15 == "Fuse" || current.slot16 == "Fuse" || current.slot17 == "Fuse" || current.slot18 == "Fuse" || current.slot19 == "Fuse" || current.slot20 == "Fuse")
-			{
-				vars.fuse = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["m19"])
-	{
-		if (vars.m19 == 0)
-		{
-			if (current.slot1 == "Handgun_M19" || current.slot2 == "Handgun_M19" || current.slot3 == "Handgun_M19" || current.slot4 == "Handgun_M19" || current.slot5 == "Handgun_M19" || current.slot6 == "Handgun_M19" || current.slot7 == "Handgun_M19" || current.slot8 == "Handgun_M19" || current.slot9 == "Handgun_M19" || current.slot10 == "Handgun_M19" || current.slot11 == "Handgun_M19" || current.slot12 == "Handgun_M19" || current.slot13 == "Handgun_M19" || current.slot14 == "Handgun_M19" || current.slot15 == "Handgun_M19" || current.slot16 == "Handgun_M19" || current.slot17 == "Handgun_M19" || current.slot18 == "Handgun_M19" || current.slot19 == "Handgun_M19" || current.slot20 == "Handgun_M19")
-			{
-				vars.m19 = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["hatchkey"])
-	{
-		if (vars.hatchkey == 0)
-		{
-			if (current.slot1 == "FloorDoorKey" || current.slot2 == "FloorDoorKey" || current.slot3 == "FloorDoorKey" || current.slot4 == "FloorDoorKey" || current.slot5 == "FloorDoorKey" || current.slot6 == "FloorDoorKey" || current.slot7 == "FloorDoorKey" || current.slot8 == "FloorDoorKey" || current.slot9 == "FloorDoorKey" || current.slot10 == "FloorDoorKey" || current.slot11 == "FloorDoorKey" || current.slot12 == "FloorDoorKey" || current.slot13 == "FloorDoorKey" || current.slot14 == "FloorDoorKey" || current.slot15 == "FloorDoorKey" || current.slot16 == "FloorDoorKey" || current.slot17 == "FloorDoorKey" || current.slot18 == "FloorDoorKey" || current.slot19 == "FloorDoorKey" || current.slot20 == "FloorDoorKey")
-			{
-				vars.hatchkey = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["knife"])
-	{
-		if (vars.knife == 0)
-		{
-			if (current.slot1 == "Knife" || current.slot2 == "Knife" || current.slot3 == "Knife" || current.slot4 == "Knife" || current.slot5 == "Knife" || current.slot6 == "Knife" || current.slot7 == "Knife" || current.slot8 == "Knife" || current.slot9 == "Knife" || current.slot10 == "Knife" || current.slot11 == "Knife" || current.slot12 == "Knife" || current.slot13 == "Knife" || current.slot14 == "Knife" || current.slot15 == "Knife" || current.slot16 == "Knife" || current.slot17 == "Knife" || current.slot18 == "Knife" || current.slot19 == "Knife" || current.slot20 == "Knife")
-			{
-				vars.knife = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["carkey"])
-	{
-		if (vars.carkey == 0)
-		{
-			if (current.slot1 == "EthanCarKey" || current.slot2 == "EthanCarKey" || current.slot3 == "EthanCarKey" || current.slot4 == "EthanCarKey" || current.slot5 == "EthanCarKey" || current.slot6 == "EthanCarKey" || current.slot7 == "EthanCarKey" || current.slot8 == "EthanCarKey" || current.slot9 == "EthanCarKey" || current.slot10 == "EthanCarKey" || current.slot11 == "EthanCarKey" || current.slot12 == "EthanCarKey" || current.slot13 == "EthanCarKey" || current.slot14 == "EthanCarKey" || current.slot15 == "EthanCarKey" || current.slot16 == "EthanCarKey" || current.slot17 == "EthanCarKey" || current.slot18 == "EthanCarKey" || current.slot19 == "EthanCarKey" || current.slot20 == "EthanCarKey")
-			{
-				vars.carkey = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["g17"])
-	{
-		if (vars.g17 == 0)
-		{
-			if (current.slot1 == "Handgun_G17" || current.slot2 == "Handgun_G17" || current.slot3 == "Handgun_G17" || current.slot4 == "Handgun_G17" || current.slot5 == "Handgun_G17" || current.slot6 == "Handgun_G17" || current.slot7 == "Handgun_G17" || current.slot8 == "Handgun_G17" || current.slot9 == "Handgun_G17" || current.slot10 == "Handgun_G17" || current.slot11 == "Handgun_G17" || current.slot12 == "Handgun_G17" || current.slot13 == "Handgun_G17" || current.slot14 == "Handgun_G17" || current.slot15 == "Handgun_G17" || current.slot16 == "Handgun_G17" || current.slot17 == "Handgun_G17" || current.slot18 == "Handgun_G17" || current.slot19 == "Handgun_G17" || current.slot20 == "Handgun_G17")
-			{
-				vars.g17 = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["oxstatue"])
-	{
-		if (vars.oxstatue == 0)
-		{
-			if (current.slot1 == "EntranceHallKey" || current.slot2 == "EntranceHallKey" || current.slot3 == "EntranceHallKey" || current.slot4 == "EntranceHallKey" || current.slot5 == "EntranceHallKey" || current.slot6 == "EntranceHallKey" || current.slot7 == "EntranceHallKey" || current.slot8 == "EntranceHallKey" || current.slot9 == "EntranceHallKey" || current.slot10 == "EntranceHallKey" || current.slot11 == "EntranceHallKey" || current.slot12 == "EntranceHallKey" || current.slot13 == "EntranceHallKey" || current.slot14 == "EntranceHallKey" || current.slot15 == "EntranceHallKey" || current.slot16 == "EntranceHallKey" || current.slot17 == "EntranceHallKey" || current.slot18 == "EntranceHallKey" || current.slot19 == "EntranceHallKey" || current.slot20 == "EntranceHallKey")
-			{
-				vars.oxstatue = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["clockpendulum"])
-	{
-		if (vars.clockpendulum == 0)
-		{
-			if (current.slot1 == "PendulumClock" || current.slot2 == "PendulumClock" || current.slot3 == "PendulumClock" || current.slot4 == "PendulumClock" || current.slot5 == "PendulumClock" || current.slot6 == "PendulumClock" || current.slot7 == "PendulumClock" || current.slot8 == "PendulumClock" || current.slot9 == "PendulumClock" || current.slot10 == "PendulumClock" || current.slot11 == "PendulumClock" || current.slot12 == "PendulumClock" || current.slot13 == "PendulumClock" || current.slot14 == "PendulumClock" || current.slot15 == "PendulumClock" || current.slot16 == "PendulumClock" || current.slot17 == "PendulumClock" || current.slot18 == "PendulumClock" || current.slot19 == "PendulumClock" || current.slot20 == "PendulumClock")
-			{
-				vars.clockpendulum = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["woodenstatue"])
-	{
-		if (vars.woodenstatue == 0)
-		{
-			if (current.slot1 == "SilhouettePazzlePiece" || current.slot2 == "SilhouettePazzlePiece" || current.slot3 == "SilhouettePazzlePiece" || current.slot4 == "SilhouettePazzlePiece" || current.slot5 == "SilhouettePazzlePiece" || current.slot6 == "SilhouettePazzlePiece" || current.slot7 == "SilhouettePazzlePiece" || current.slot8 == "SilhouettePazzlePiece" || current.slot9 == "SilhouettePazzlePiece" || current.slot10 == "SilhouettePazzlePiece" || current.slot11 == "SilhouettePazzlePiece" || current.slot12 == "SilhouettePazzlePiece" || current.slot13 == "SilhouettePazzlePiece" || current.slot14 == "SilhouettePazzlePiece" || current.slot15 == "SilhouettePazzlePiece" || current.slot16 == "SilhouettePazzlePiece" || current.slot17 == "SilhouettePazzlePiece" || current.slot18 == "SilhouettePazzlePiece" || current.slot19 == "SilhouettePazzlePiece" || current.slot20 == "SilhouettePazzlePiece")
-			{
-				vars.woodenstatue = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["bluedoghead"])
-	{
-		if (vars.bluedoghead == 0)
-		{
-			if (current.slot1 == "3CrestKeyA" || current.slot2 == "3CrestKeyA" || current.slot3 == "3CrestKeyA" || current.slot4 == "3CrestKeyA" || current.slot5 == "3CrestKeyA" || current.slot6 == "3CrestKeyA" || current.slot7 == "3CrestKeyA" || current.slot8 == "3CrestKeyA" || current.slot9 == "3CrestKeyA" || current.slot10 == "3CrestKeyA" || current.slot11 == "3CrestKeyA" || current.slot12 == "3CrestKeyA" || current.slot13 == "3CrestKeyA" || current.slot14 == "3CrestKeyA" || current.slot15 == "3CrestKeyA" || current.slot16 == "3CrestKeyA" || current.slot17 == "3CrestKeyA" || current.slot18 == "3CrestKeyA" || current.slot19 == "3CrestKeyA" || current.slot20 == "3CrestKeyA")
-			{
-				vars.bluedoghead = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["whitedoghead"])
-	{
-		if (vars.whitedoghead == 0)
-		{
-			if (current.slot1 == "3CrestKeyB" || current.slot2 == "3CrestKeyB" || current.slot3 == "3CrestKeyB" || current.slot4 == "3CrestKeyB" || current.slot5 == "3CrestKeyB" || current.slot6 == "3CrestKeyB" || current.slot7 == "3CrestKeyB" || current.slot8 == "3CrestKeyB" || current.slot9 == "3CrestKeyB" || current.slot10 == "3CrestKeyB" || current.slot11 == "3CrestKeyB" || current.slot12 == "3CrestKeyB" || current.slot13 == "3CrestKeyB" || current.slot14 == "3CrestKeyB" || current.slot15 == "3CrestKeyB" || current.slot16 == "3CrestKeyB" || current.slot17 == "3CrestKeyB" || current.slot18 == "3CrestKeyB" || current.slot19 == "3CrestKeyB" || current.slot20 == "3CrestKeyB")
-			{
-				vars.whitedoghead = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["dissectionroomkey"])
-	{
-		if (vars.dissectionroomkey == 0)
-		{
-			if (current.slot1 == "WorkroomKey" || current.slot2 == "WorkroomKey" || current.slot3 == "WorkroomKey" || current.slot4 == "WorkroomKey" || current.slot5 == "WorkroomKey" || current.slot6 == "WorkroomKey" || current.slot7 == "WorkroomKey" || current.slot8 == "WorkroomKey" || current.slot9 == "WorkroomKey" || current.slot10 == "WorkroomKey" || current.slot11 == "WorkroomKey" || current.slot12 == "WorkroomKey" || current.slot13 == "WorkroomKey" || current.slot14 == "WorkroomKey" || current.slot15 == "WorkroomKey" || current.slot16 == "WorkroomKey" || current.slot17 == "WorkroomKey" || current.slot18 == "WorkroomKey" || current.slot19 == "WorkroomKey" || current.slot20 == "WorkroomKey")
-			{
-				vars.dissectionroomkey = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["scorpionkey"])
-	{
-		if (vars.scorpionkey == 0)
-		{
-			if (current.slot1 == "MorgueKey" || current.slot2 == "MorgueKey" || current.slot3 == "MorgueKey" || current.slot4 == "MorgueKey" || current.slot5 == "MorgueKey" || current.slot6 == "MorgueKey" || current.slot7 == "MorgueKey" || current.slot8 == "MorgueKey" || current.slot9 == "MorgueKey" || current.slot10 == "MorgueKey" || current.slot11 == "MorgueKey" || current.slot12 == "MorgueKey" || current.slot13 == "MorgueKey" || current.slot14 == "MorgueKey" || current.slot15 == "MorgueKey" || current.slot16 == "MorgueKey" || current.slot17 == "MorgueKey" || current.slot18 == "MorgueKey" || current.slot19 == "MorgueKey" || current.slot20 == "MorgueKey")
-			{
-				vars.scorpionkey = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["chainsaw"])
-	{
-		if (vars.chainsaw == 0)
-		{
-			if (current.slot1 == "ChainSaw" || current.slot2 == "ChainSaw" || current.slot3 == "ChainSaw" || current.slot4 == "ChainSaw" || current.slot5 == "ChainSaw" || current.slot6 == "ChainSaw" || current.slot7 == "ChainSaw" || current.slot8 == "ChainSaw" || current.slot9 == "ChainSaw" || current.slot10 == "ChainSaw" || current.slot11 == "ChainSaw" || current.slot12 == "ChainSaw" || current.slot13 == "ChainSaw" || current.slot14 == "ChainSaw" || current.slot15 == "ChainSaw" || current.slot16 == "ChainSaw" || current.slot17 == "ChainSaw" || current.slot18 == "ChainSaw" || current.slot19 == "ChainSaw" || current.slot20 == "ChainSaw")
-			{
-				vars.chainsaw = 1;
-				return true;
-			}
-		}
-	}
-	if (settings["chainsawduel"])
-	{
-		if (vars.chainsawduel == 0)
-		{
-			if (old.slot1 == "ChainSaw" && current.slot1 != "ChainSaw" || old.slot2 == "ChainSaw" && current.slot2 != "ChainSaw" || old.slot3 == "ChainSaw" && current.slot3 != "ChainSaw" || old.slot4 == "ChainSaw" && current.slot4 != "ChainSaw" || old.slot5 == "ChainSaw" && current.slot5 != "ChainSaw" || old.slot6 == "ChainSaw" && current.slot6 != "ChainSaw" || old.slot7 == "ChainSaw" && current.slot7 != "ChainSaw" || old.slot8 == "ChainSaw" && current.slot8 != "ChainSaw" && current.isPaused || old.slot9 == "ChainSaw" && current.slot9 != "ChainSaw" || old.slot10 == "ChainSaw" && current.slot10 != "ChainSaw" || old.slot11 == "ChainSaw" && current.slot11 != "ChainSaw" || old.slot12 == "ChainSaw" && current.slot12 != "ChainSaw" || old.slot13 == "ChainSaw" && current.slot13 != "ChainSaw" && current.isPaused || old.slot14 == "ChainSaw" && current.slot14 != "ChainSaw" && current.isPaused || old.slot15 == "ChainSaw" && current.slot15 != "ChainSaw")
-			{
-				if (vars.isdead == 0)
-				{
-					if (current.slot1 != "ChainSaw" && current.slot2 != "ChainSaw" && current.slot3 != "ChainSaw" && current.slot4 != "ChainSaw" && current.slot5 != "ChainSaw" && current.slot6 != "ChainSaw" && current.slot7 != "ChainSaw" && current.slot8 != "ChainSaw" && current.slot9 != "ChainSaw" && current.slot10 != "ChainSaw" && current.slot11 != "ChainSaw" && current.slot12 != "ChainSaw" && current.slot13 != "ChainSaw" && current.slot14 != "ChainSaw" && current.slot15 != "ChainSaw")
-					{
-						vars.chainsawduel = 1;
-						return true;
-					}
+
+	// maps being entered for first time
+	if (current.map != old.map) {
+		switch((string)current.map) {
+			case "c01_Corridor01":
+				if (vars.guesthouse == 0) {
+					vars.guesthouse = 1;
+					return settings["guesthouse"];
 				}
-			}
+			break;
 		}
 	}
+	
+	// items being recieved for first time
+	foreach (string item in vars.inventorySlots) {
+		switch((string)item) {
+			case "ChainCutter":
+				if (vars.boltcutters == 0) {
+					vars.boltcutters = 1;
+					return settings["boltcutters"];
+				}
+				break;
+			case "HandAxe":
+				if (vars.axe == 0) {
+					vars.axe = 1;
+					return settings["axe"];
+				}
+				break;
+			case "Fuse":
+				if (vars.fuse == 0) {
+					vars.fuse = 1;
+					return settings["fuse"];
+				}
+				break;
+			case "Handgun_M19":
+				if (vars.m19 == 0) {
+					vars.m19 = 1;
+					return settings["m19"];
+				}
+				break;
+			case "FloorDoorKey":
+				if (vars.hatchkey == 0) {
+					vars.hatchkey = 1;
+					return settings["hatchkey"];
+				}
+				break;
+			case "Knife":
+				if (vars.knife == 0) {
+					vars.knife = 1;
+					return settings["knife"];
+				}
+				break;
+			case "EthanCarKey":
+				if (vars.carkey == 0) {
+					vars.carkey = 1;
+					return settings["carkey"];
+				}
+				break;
+			case "Handgun_G17":
+				if (vars.g17 == 0) {
+					vars.g17 = 1;
+					return settings["g17"];
+				}
+				break;
+			case "EntranceHallKey":
+				if (vars.oxstatue == 0) {
+					vars.oxstatue = 1;
+					return settings["oxstatue"];
+				}
+				break;
+			case "PendulumClock":
+				if (vars.clockpendulum == 0) {
+					vars.clockpendulum = 1;
+					return settings["clockpendulum"];
+				}
+				break;
+			case "SilhouettePazzlePiece":
+				if (vars.woodenstatue == 0) {
+					vars.woodenstatue = 1;
+					return settings["woodenstatue"];
+				}
+				break;
+			case "3CrestKeyA":
+				if (vars.bluedoghead == 0) {
+					vars.bluedoghead = 1;
+					return settings["bluedoghead"];
+				}
+				break;
+			case "3CrestKeyB":
+				if (vars.whitedoghead == 0) {
+					vars.whitedoghead = 1;
+					return settings["whitedoghead"];
+				}
+				break;
+			case "WorkroomKey":
+				if (vars.dissectionroomkey == 0) {
+					vars.dissectionroomkey = 1;
+					return settings["dissectionroomkey"];
+				}
+				break;
+			case "MorgueKey":
+				if (vars.scorpionkey == 0) {
+					vars.scorpionkey = 1;
+					return settings["scorpionkey"];
+				}
+				break;
+			case "ChainSaw":
+				vars.haschainsaw = 1;
+				if (vars.chainsaw == 0) {
+					vars.chainsaw = 1;
+					return settings["chainsaw"];
+				}
+				break;
+		}
+	}
+
+	// Chainsaw Duel
+	if (!vars.chainsawduel && !vars.isdead && vars.chainsaw && !vars.haschainsaw) {
+		return settings["chainsawduel"];
+	}
+
 	if (settings["reddoghead"])
 	{
 		if (vars.reddoghead == 0)
@@ -1125,14 +1070,8 @@ split
 		}
 	}
 }
+
 isLoading
 {
-	if (current.isPaused == 1 && old.isPaused == 0)
-	{
-		return true;
-	}
-	if (current.isPaused == 0 && old.isPaused == 1)
-	{
-		return false;
-	}
+	return current.isPaused == 1;
 }
