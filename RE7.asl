@@ -330,8 +330,9 @@ update
 		vars.fuse = 0;
 		vars.end = 0;
 		vars.isdead = 0;
-		vars.haschainsaw = 0;
 	}
+
+	vars.haschainsaw = 0;
 }
 
 
