@@ -354,6 +354,8 @@ split
 	// items being recieved for first time
 	foreach (string item in vars.inventorySlots) {
 		switch((string)item) {
+			case null:
+				break;
 			case "ChainCutter":
 				if (vars.boltcutters == 0) {
 					vars.boltcutters = 1;
@@ -455,7 +457,8 @@ split
 	}
 
 	// Chainsaw Duel
-	if (!vars.chainsawduel && !vars.isdead && vars.chainsaw && !vars.haschainsaw) {
+	if (vars.chainsawduel == 0 && vars.isdead == 0 && vars.chainsaw == 1 && vars.haschainsaw == 0) {
+		vars.chainsawduel = 1;
 		return settings["chainsawduel"];
 	}
 
