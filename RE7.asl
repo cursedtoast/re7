@@ -96,7 +96,7 @@ state("re7", "1.3")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 4.0.1");
+	settings.Add("version", false, "Autosplitter Version 4.0.2);
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -1024,7 +1024,7 @@ split
 			if (old.slot1 == "SerumTypeE" && current.slot1 != "SerumTypeE" || old.slot2 == "SerumTypeE" && current.slot2 != "SerumTypeE" || old.slot3 == "SerumTypeE" && current.slot3 != "SerumTypeE" || old.slot4 == "SerumTypeE" && current.slot4 != "SerumTypeE" || old.slot5 == "SerumTypeE" && current.slot5 != "SerumTypeE" || old.slot6 == "SerumTypeE" && current.slot6 != "SerumTypeE" || old.slot7 == "SerumTypeE" && current.slot7 != "SerumTypeE" || old.slot8 == "SerumTypeE" && current.slot8 != "SerumTypeE" || old.slot9 == "SerumTypeE" && current.slot9 != "SerumTypeE" || old.slot10 == "SerumTypeE" && current.slot10 != "SerumTypeE" || old.slot11 == "SerumTypeE" && current.slot11 != "SerumTypeE" || old.slot12 == "SerumTypeE" && current.slot12 != "SerumTypeE" || old.slot13 == "SerumTypeE" && current.slot13 != "SerumTypeE" || old.slot14 == "SerumTypeE" && current.slot14 != "SerumTypeE" || old.slot15 == "SerumTypeE" && current.slot15 != "SerumTypeE" || old.slot16 == "SerumTypeE" && current.slot16 != "SerumTypeE" || old.slot17 == "SerumTypeE" && current.slot17 != "SerumTypeE" || old.slot18 == "SerumTypeE" && current.slot18 != "SerumTypeE" || old.slot19 == "SerumTypeE" && current.slot19 != "SerumTypeE" || old.slot20 == "SerumTypeE" && current.slot20 != "SerumTypeE")			{
 				if (current.slot1 != "SerumTypeE" && current.slot2 != "SerumTypeE" && current.slot3 != "SerumTypeE" && current.slot4 != "SerumTypeE" && current.slot5 != "SerumTypeE" && current.slot6 != "SerumTypeE" && current.slot7 != "SerumTypeE" && current.slot8 != "SerumTypeE" && current.slot9 != "SerumTypeE" && current.slot10 != "SerumTypeE" && current.slot11 != "SerumTypeE" && current.slot12 != "SerumTypeE" && current.slot13 != "SerumTypeE" && current.slot14 != "SerumTypeE" && current.slot15 != "SerumTypeE" && current.slot16 != "SerumTypeE" && current.slot17 != "SerumTypeE" && current.slot18 != "SerumTypeE" && current.slot19 != "SerumTypeE" && current.slot20 != "SerumTypeE")
 				{
-					if (vars.isdead == 0)
+					if (vars.isdead == 0 && current.map == "c04_c013F")
 					{
 						vars.injectedbitch = 1;
 						return true;
