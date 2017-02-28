@@ -96,7 +96,7 @@ state("re7", "1.3")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 4.0.3");
+	settings.Add("version", false, "Autosplitter Version 4.0.4");
 	settings.Add("guesthouse", false, "Reached the Guest House");
 	settings.Add("boltcutters", false, "Bolt Cutters");
 	settings.Add("axe", false, "Axe (first time)");
@@ -914,7 +914,7 @@ split
 			{
 				if (vars.isdead == 0)
 				{
-					if (current.slot1 != "Lantern" || current.slot2 != "Lantern" || current.slot3 != "Lantern" || current.slot4 != "Lantern" || current.slot5 != "Lantern" || current.slot6 != "Lantern" || current.slot7 != "Lantern" || current.slot8 != "Lantern" || current.slot9 != "Lantern" || current.slot10 != "Lantern" || current.slot11 != "Lantern" || current.slot12 != "Lantern" || current.slot13 != "Lantern" || current.slot14 != "Lantern" || current.slot15 != "Lantern" || current.slot16 != "Lantern" || current.slot17 != "Lantern" || current.slot18 != "Lantern" || current.slot19 != "Lantern" || current.slot20 != "Lantern")
+					if (current.slot1 != "Lantern" && current.slot2 != "Lantern" && current.slot3 != "Lantern" && current.slot4 != "Lantern" && current.slot5 != "Lantern" && current.slot6 != "Lantern" && current.slot7 != "Lantern" && current.slot8 != "Lantern" && current.slot9 != "Lantern" && current.slot10 != "Lantern" && current.slot11 != "Lantern" && current.slot12 != "Lantern" && current.slot13 != "Lantern" && current.slot14 != "Lantern" && current.slot15 != "Lantern" && current.slot16 != "Lantern" && current.slot17 != "Lantern" && current.slot18 != "Lantern" && current.slot19 != "Lantern" && current.slot20 != "Lantern")
 					{
 						vars.usedlantern = 1;
 						return true;
