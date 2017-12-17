@@ -1,6 +1,6 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last Updated 12/16/2017
+Last updated 12/17/2017
 
 //Special thanks to:
 //CarcinogenSDA (you know why)
@@ -124,63 +124,80 @@ state("re7", "1.4")
 
 startup
 {
-	settings.Add("version", false, "Autosplitter Version 5.0.0");
-	settings.Add("guesthouse", false, "Reached the Guest House");
-	settings.Add("boltcutters", false, "Bolt Cutters");
-	settings.Add("axe", false, "Axe (first time)");
-	settings.Add("fuse", false, "Fuse (Guest House)");
-	settings.Add("welcome2family", false, "Welcome to the family (splits during drag scene)");
-	settings.Add("hatchkey", false, "Hatch Key");
-	settings.Add("knife", false, "Knife");
-	settings.Add("m19", false, "M19 (Guest House gun)");
-	settings.Add("g17", false, "G17 (Garage gun)");
-	settings.Add("carkey", false, "Car Key");
-	settings.Add("oxstatue", false, "Ox Statuette");
-	settings.Add("clockpendulum", false, "Clock Pendulum");
-	settings.Add("bluedoghead", false, "Blue Dog Head");
-	settings.Add("woodenstatue", false, "Wooden Statuette");
-	settings.Add("whitedoghead", false, "White Dog Head");
-	settings.Add("dissectionroomkey", false, "Dissection Room Key");
-	settings.Add("reddoghead", false, "Red Dog Head");
-	settings.Add("chainsaw", false, "Chainsaw");
-	settings.Add("chainsawduel", false, "Finished chainsaw fight");
-	settings.Add("scorpionkey", false, "Scorpion Key");
-	settings.Add("trailer", false, "Reached the trailer (first time)");
-	settings.Add("oldhouse", false, "Reached the Old House");
-	settings.Add("burnergrip", false, "Burner Grip");
-	settings.Add("burnernozzle", false, "Burner Nozzle");
-	settings.Add("stonestatue", false, "Stone Statue");
-	settings.Add("crank", false, "Crank");
-	settings.Add("crowkey", false, "Crow Key");
-	settings.Add("crowdoor", false, "Entered Crow Door (after falling down hole)");
-	settings.Add("lantern", false, "Lantern");
-	settings.Add("usedlantern", false, "Placed Lantern (to unlock door)");
-	settings.Add("arm", false, "D-Series Arm");
-	settings.Add("magnum", false, "Magnum");
-	settings.Add("snakekey", false, "Snake Key");
-	settings.Add("grenadelauncher", false, "Grenade Launcher");
-	settings.Add("redkeycard", false, "Red Key Card");
-	settings.Add("bluekeycard", false, "Blue Keycard");
-	settings.Add("tvroom", false, "Reached Lucas TV room");
-	settings.Add("battery", false, "Battery");
-	settings.Add("candle", false, "Candle");
-	settings.Add("valve", false, "Valve Handle");
-	settings.Add("timebomb", false, "Timebomb");
-	settings.Add("head", false, "D-Series Head");
-	settings.Add("jacksback", false, "Completed Serum");
-	settings.Add("hittheroadjack", false, "Injected Jack");
-	settings.Add("boatcrash", false, "Mia Start");
-	settings.Add("fuse2", false, "Fuse 2 (ship)");
-	settings.Add("videotape", false, "Mia Videotape (picked up)");
-	settings.Add("videotapeend", false, "Mia Tape End");
-	settings.Add("lugwrench", false, "Lug Wrench");
-	settings.Add("powercable", false, "Power Cable");
-	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship)");
-	settings.Add("miacomplete", false, "Mia Complete");
-	settings.Add("necrotoxin", false, "Necrotoxin");
-	settings.Add("injectedbitch", false, "Injected Evie");
-	settings.Add("albert", false, "Albert Gun (Platimes over)");
-	settings.Add("end", false, "End");
+	settings.Add("maingame", false, "Main Campaign");
+	settings.Add("guesthouse", false, "Reached the Guest House", "maingame");
+	settings.Add("boltcutters", false, "Bolt Cutters", "maingame");
+	settings.Add("axe", false, "Axe (first time)", "maingame");
+	settings.Add("fuse", false, "Fuse (Guest House)", "maingame");
+	settings.Add("welcome2family", false, "Welcome to the family (splits during drag scene)", "maingame");
+	settings.Add("hatchkey", false, "Hatch Key", "maingame");
+	settings.Add("knife", false, "Knife", "maingame");
+	settings.Add("m19", false, "M19 (Guest House gun)", "maingame");
+	settings.Add("g17", false, "G17 (Garage gun)", "maingame");
+	settings.Add("carkey", false, "Car Key", "maingame");
+	settings.Add("oxstatue", false, "Ox Statuette", "maingame");
+	settings.Add("clockpendulum", false, "Clock Pendulum", "maingame");
+	settings.Add("bluedoghead", false, "Blue Dog Head", "maingame");
+	settings.Add("woodenstatue", false, "Wooden Statuette", "maingame");
+	settings.Add("whitedoghead", false, "White Dog Head", "maingame");
+	settings.Add("dissectionroomkey", false, "Dissection Room Key", "maingame");
+	settings.Add("reddoghead", false, "Red Dog Head", "maingame");
+	settings.Add("chainsaw", false, "Chainsaw", "maingame");
+	settings.Add("chainsawduel", false, "Finished chainsaw fight", "maingame");
+	settings.Add("scorpionkey", false, "Scorpion Key", "maingame");
+	settings.Add("trailer", false, "Reached the trailer (first time)", "maingame");
+	settings.Add("oldhouse", false, "Reached the Old House", "maingame");
+	settings.Add("burnergrip", false, "Burner Grip", "maingame");
+	settings.Add("burnernozzle", false, "Burner Nozzle", "maingame");
+	settings.Add("stonestatue", false, "Stone Statue", "maingame");
+	settings.Add("crank", false, "Crank", "maingame");
+	settings.Add("crowkey", false, "Crow Key", "maingame");
+	settings.Add("crowdoor", false, "Entered Crow Door (after falling down hole)", "maingame");
+	settings.Add("lantern", false, "Lantern", "maingame");
+	settings.Add("usedlantern", false, "Placed Lantern (to unlock door)", "maingame");
+	settings.Add("arm", false, "D-Series Arm", "maingame");
+	settings.Add("magnum", false, "Magnum", "maingame");
+	settings.Add("snakekey", false, "Snake Key", "maingame");
+	settings.Add("grenadelauncher", false, "Grenade Launcher", "maingame");
+	settings.Add("redkeycard", false, "Red Key Card", "maingame");
+	settings.Add("bluekeycard", false, "Blue Keycard", "maingame");
+	settings.Add("tvroom", false, "Reached Lucas TV room", "maingame");
+	settings.Add("battery", false, "Battery", "maingame");
+	settings.Add("candle", false, "Candle", "maingame");
+	settings.Add("valve", false, "Valve Handle", "maingame");
+	settings.Add("timebomb", false, "Timebomb", "maingame");
+	settings.Add("head", false, "D-Series Head", "maingame");
+	settings.Add("jacksback", false, "Completed Serum", "maingame");
+	settings.Add("hittheroadjack", false, "Injected Jack", "maingame");
+	settings.Add("boatcrash", false, "Mia Start", "maingame");
+	settings.Add("fuse2", false, "Fuse 2 (ship)", "maingame");
+	settings.Add("videotape", false, "Mia Videotape (picked up)", "maingame");
+	settings.Add("videotapeend", false, "Mia Tape End", "maingame");
+	settings.Add("lugwrench", false, "Lug Wrench", "maingame");
+	settings.Add("powercable", false, "Power Cable", "maingame");
+	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship)", "maingame");
+	settings.Add("miacomplete", false, "Mia Complete", "maingame");
+	settings.Add("necrotoxin", false, "Necrotoxin", "maingame");
+	settings.Add("injectedbitch", false, "Injected Evie", "maingame");
+	settings.Add("albert", false, "Albert Gun (Platimes over)", "maingame");
+	settings.Add("end", false, "End", "maingame");
+	settings.Add("nah", false, "Not a Hero");
+	settings.Add("nah_newdoor", false, "Reached the new section of the mine", "nah");
+	settings.Add("nah_gear", false, "Gear", "nah");
+	settings.Add("nah_crank", false, "Crank", "nah");
+	settings.Add("nah_cagekey", false, "Cage Key", "nah");
+	settings.Add("nah_soldier2", false, "Entered soldier 2's cell", "nah");
+	settings.Add("nah_handgun", false, "Handgun (Professional mode only!)", "nah");
+	settings.Add("nah_ramrods", false, "Ramrods (first time, near night vision)", "nah");
+	settings.Add("nah_clownkey", false, "Clown Key", "nah");
+	settings.Add("nah_shotgun", false, "Shotgun (Professional mode only!)", "nah");
+	settings.Add("nah_soldier3", false, "Saved soldier 3 (triggers in room with ladder)", "nah");
+	settings.Add("nah_fatroom", false, "Reached fat molded boss room", "nah");
+	settings.Add("nah_bombgone", false, "Beat fat molded/Removed bomb (triggers after leaving area after removing bomb)", "nah");
+	settings.Add("nah_shielddoor", false, "Entered the Blast Door", "nah");
+	settings.Add("nah_didntasplode", false, "Escaped the explosion (post-horde)", "nah");
+	settings.Add("nah_lucasroom", false, "Reached the Lucas boss room", "nah");
+	settings.Add("nah_end", false, "End", "nah");
 }
 
 init
@@ -241,6 +258,22 @@ init
 	vars.m19 = 0;
 	vars.fuse = 0;
 	vars.end = 0;
+	vars.nah_newdoor = 0;
+	vars.nah_gear = 0;
+	vars.nah_crank = 0;
+	vars.nah_cagekey = 0;
+	vars.nah_soldier2 = 0;
+	vars.nah_handgun = 0;
+	vars.nah_ramrods = 0;
+	vars.nah_clownkey = 0;
+	vars.nah_shotgun = 0;
+	vars.nah_soldier3 = 0;
+	vars.nah_fatroom = 0;
+	vars.nah_bombgone = 0;
+	vars.nah_shielddoor = 0;
+	vars.nah_didntasplode = 0;
+	vars.nah_lucasroom = 0;
+	vars.nah_end = 0;
 	vars.isdead = 0;
 	if (modules.First().ModuleMemorySize == 241680384)
 	{
@@ -262,8 +295,23 @@ init
 
 
 start
-{
-    return current.map == "c04_Ship3FInfirmaryPast"; 
+{	
+	if (settings["nah"])
+	{
+		if (current.map == "c04_CavePassage01" && current.slot1 == "CKnife")
+		{
+			return true;
+		}
+		else if (current.map == "c04_Ship3FInfirmaryPast")
+		{
+			return true;
+		}
+	}
+	else if (current.map == "c04_Ship3FInfirmaryPast")
+	{
+		return true;
+	}
+
 }
 
 update
@@ -336,6 +384,22 @@ update
 		vars.m19 = 0;
 		vars.fuse = 0;
 		vars.end = 0;
+		vars.nah_newdoor = 0;
+		vars.nah_gear = 0;
+		vars.nah_crank = 0;
+		vars.nah_cagekey = 0;
+		vars.nah_soldier2 = 0;
+		vars.nah_handgun = 0;
+		vars.nah_ramrods = 0;
+		vars.nah_clownkey = 0;
+		vars.nah_shotgun = 0;
+		vars.nah_soldier3 = 0;
+		vars.nah_fatroom = 0;
+		vars.nah_bombgone = 0;
+		vars.nah_shielddoor = 0;
+		vars.nah_didntasplode = 0;
+		vars.nah_lucasroom = 0;
+		vars.nah_end = 0;
 		vars.isdead = 0;
 	}
 }
@@ -1153,6 +1217,158 @@ split
 			if (old.slot1 == "Handgun_Albert" && current.slot1 != "Handgun_Albert")
 			{
 				vars.end = 1;
+				return true;
+			}
+		}
+	}
+	if (settings["nah"])
+	{
+		if (settings["nah_newdoor"])
+		{
+			if (vars.nah_newdoor == 0 && current.map == "c08_SaltMineCorridor01")
+			{
+				vars.nah_newdoor = 1;
+				return true;
+			}
+		}
+		if (settings["nah_gear"])
+		{
+			if (vars.nah_gear == 0)
+			{
+				if (current.slot1 == "KeyItem05Ch8" || current.slot2 == "KeyItem05Ch8" || current.slot3 == "KeyItem05Ch8" || current.slot4 == "KeyItem05Ch8" || current.slot5 == "KeyItem05Ch8" || current.slot6 == "KeyItem05Ch8" || current.slot7 == "KeyItem05Ch8" || current.slot8 == "KeyItem05Ch8" || current.slot9 == "KeyItem05Ch8" || current.slot10 == "KeyItem05Ch8" || current.slot11 == "KeyItem05Ch8" || current.slot12 == "KeyItem05Ch8" || current.slot13 == "KeyItem05Ch8" || current.slot14 == "KeyItem05Ch8" || current.slot15 == "KeyItem05Ch8" || current.slot16 == "KeyItem05Ch8" || current.slot17 == "KeyItem05Ch8" || current.slot18 == "KeyItem05Ch8" || current.slot19 == "KeyItem05Ch8" || current.slot20 == "KeyItem05Ch8")
+				{
+					vars.nah_gear = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["nah_crank"])
+		{
+			if (vars.nah_crank == 0)
+			{
+				if (current.slot1 == "KeyItem03Ch8" || current.slot2 == "KeyItem03Ch8" || current.slot3 == "KeyItem03Ch8" || current.slot4 == "KeyItem03Ch8" || current.slot5 == "KeyItem03Ch8" || current.slot6 == "KeyItem03Ch8" || current.slot7 == "KeyItem03Ch8" || current.slot8 == "KeyItem03Ch8" || current.slot9 == "KeyItem03Ch8" || current.slot10 == "KeyItem03Ch8" || current.slot11 == "KeyItem03Ch8" || current.slot12 == "KeyItem03Ch8" || current.slot13 == "KeyItem03Ch8" || current.slot14 == "KeyItem03Ch8" || current.slot15 == "KeyItem03Ch8" || current.slot16 == "KeyItem03Ch8" || current.slot17 == "KeyItem03Ch8" || current.slot18 == "KeyItem03Ch8" || current.slot19 == "KeyItem03Ch8" || current.slot20 == "KeyItem03Ch8")
+				{
+					vars.nah_crank = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["nah_cagekey"])
+		{
+			if (vars.nah_cagekey == 0)
+			{
+				if (current.slot1 == "Ch8CageKey" || current.slot2 == "Ch8CageKey" || current.slot3 == "Ch8CageKey" || current.slot4 == "Ch8CageKey" || current.slot5 == "Ch8CageKey" || current.slot6 == "Ch8CageKey" || current.slot7 == "Ch8CageKey" || current.slot8 == "Ch8CageKey" || current.slot9 == "Ch8CageKey" || current.slot10 == "Ch8CageKey" || current.slot11 == "Ch8CageKey" || current.slot12 == "Ch8CageKey" || current.slot13 == "Ch8CageKey" || current.slot14 == "Ch8CageKey" || current.slot15 == "Ch8CageKey" || current.slot16 == "Ch8CageKey" || current.slot17 == "Ch8CageKey" || current.slot18 == "Ch8CageKey" || current.slot19 == "Ch8CageKey" || current.slot20 == "Ch8CageKey")
+				{
+					vars.nah_cagekey = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["nah_soldier2"])
+		{
+			if (vars.nah_soldier2 == 0 && current.map == "c08_MiningRoom01")
+			{
+				vars.nah_soldier2 = 1;
+				return true;
+			}
+		}
+		if (settings["nah_handgun"])
+		{
+			if (vars.nah_handgun == 0)
+			{
+				if (current.slot1 == "Handgun_Albert_C" || current.slot2 == "Handgun_Albert_C" || current.slot3 == "Handgun_Albert_C" || current.slot4 == "Handgun_Albert_C" || current.slot5 == "Handgun_Albert_C" || current.slot6 == "Handgun_Albert_C" || current.slot7 == "Handgun_Albert_C" || current.slot8 == "Handgun_Albert_C" || current.slot9 == "Handgun_Albert_C" || current.slot10 == "Handgun_Albert_C" || current.slot11 == "Handgun_Albert_C" || current.slot12 == "Handgun_Albert_C" || current.slot13 == "Handgun_Albert_C" || current.slot14 == "Handgun_Albert_C" || current.slot15 == "Handgun_Albert_C" || current.slot16 == "Handgun_Albert_C" || current.slot17 == "Handgun_Albert_C" || current.slot18 == "Handgun_Albert_C" || current.slot19 == "Handgun_Albert_C" || current.slot20 == "Handgun_Albert_C")
+				{
+					vars.nah_handgun = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["nah_ramrods"])
+		{
+			if (vars.nah_ramrods == 0)
+			{
+				if (current.slot1 == "AlbertHandgunBulletL" || current.slot2 == "AlbertHandgunBulletL" || current.slot3 == "AlbertHandgunBulletL" || current.slot4 == "AlbertHandgunBulletL" || current.slot5 == "AlbertHandgunBulletL" || current.slot6 == "AlbertHandgunBulletL" || current.slot7 == "AlbertHandgunBulletL" || current.slot8 == "AlbertHandgunBulletL" || current.slot9 == "AlbertHandgunBulletL" || current.slot10 == "AlbertHandgunBulletL" || current.slot11 == "AlbertHandgunBulletL" || current.slot12 == "AlbertHandgunBulletL" || current.slot13 == "AlbertHandgunBulletL" || current.slot14 == "AlbertHandgunBulletL" || current.slot15 == "AlbertHandgunBulletL" || current.slot16 == "AlbertHandgunBulletL" || current.slot17 == "AlbertHandgunBulletL" || current.slot18 == "AlbertHandgunBulletL" || current.slot19 == "AlbertHandgunBulletL" || current.slot20 == "AlbertHandgunBulletL")
+				{
+					vars.nah_ramrods = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["nah_clownkey"])
+		{
+			if (vars.nah_clownkey == 0)
+			{
+				if (current.slot1 == "MineMasterKey" || current.slot2 == "MineMasterKey" || current.slot3 == "MineMasterKey" || current.slot4 == "MineMasterKey" || current.slot5 == "MineMasterKey" || current.slot6 == "MineMasterKey" || current.slot7 == "MineMasterKey" || current.slot8 == "MineMasterKey" || current.slot9 == "MineMasterKey" || current.slot10 == "MineMasterKey" || current.slot11 == "MineMasterKey" || current.slot12 == "MineMasterKey" || current.slot13 == "MineMasterKey" || current.slot14 == "MineMasterKey" || current.slot15 == "MineMasterKey" || current.slot16 == "MineMasterKey" || current.slot17 == "MineMasterKey" || current.slot18 == "MineMasterKey" || current.slot19 == "MineMasterKey" || current.slot20 == "MineMasterKey")
+				{
+					vars.nah_clownkey = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["nah_shotgun"])
+		{
+			if (vars.nah_shotgun == 0)
+			{
+				if (current.slot1 == "Shotgun_Albert" || current.slot2 == "Shotgun_Albert" || current.slot3 == "Shotgun_Albert" || current.slot4 == "Shotgun_Albert" || current.slot5 == "Shotgun_Albert" || current.slot6 == "Shotgun_Albert" || current.slot7 == "Shotgun_Albert" || current.slot8 == "Shotgun_Albert" || current.slot9 == "Shotgun_Albert" || current.slot10 == "Shotgun_Albert" || current.slot11 == "Shotgun_Albert" || current.slot12 == "Shotgun_Albert" || current.slot13 == "Shotgun_Albert" || current.slot14 == "Shotgun_Albert" || current.slot15 == "Shotgun_Albert" || current.slot16 == "Shotgun_Albert" || current.slot17 == "Shotgun_Albert" || current.slot18 == "Shotgun_Albert" || current.slot19 == "Shotgun_Albert" || current.slot20 == "Shotgun_Albert")
+				{
+					vars.nah_shotgun = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["nah_soldier3"])
+		{
+			if (vars.nah_soldier3 == 0 && current.map == "c08_TrainPassage05")
+			{
+				vars.nah_soldier3 = 1;
+				return true;
+			}
+		}
+		if (settings["nah_fatroom"])
+		{
+			if (vars.nah_fatroom == 0 && current.map == "c08_MiningTunnel01" && old.map == "c08_MiningPassage05")
+			{
+				vars.nah_fatroom = 1;
+				return true;
+			}
+		}
+		if (settings["nah_bombgone"])
+		{
+			if (vars.nah_bombgone == 0 && current.map == "c08_MiningPassage02_static" && old.map == "c08_MiningTunnel01" || vars.nah_bombgone == 0 && current.map == "c08_MiningPassage02" && old.map == "c08_MiningTunnel01")
+			{
+				vars.nah_bombgone = 1;
+				return true;
+			}
+		}
+		if (settings["nah_shielddoor"])
+		{
+			if (vars.nah_shielddoor == 0 && current.map == "c08_ShieldMachine_Entra")
+			{
+				vars.nah_shielddoor = 1;
+				return true;
+			}
+		}
+		if (settings["nah_didntasplode"])
+		{
+			if (vars.nah_didntasplode == 0 && current.map == "c08_MineTerminal01")
+			{
+				vars.nah_didntasplode = 1;
+				return true;
+			}
+		}
+		if (settings["nah_lucasroom"])
+		{
+			if (vars.nah_lucasroom == 0 && current.map == "c08_BossRoom01")
+			{
+				vars.nah_lucasroom = 1;
+				return true;
+			}
+		}
+		if (settings["nah_end"])
+		{
+			if (vars.nah_end == 0 && old.map == "c08_BossRoom01" && current.slot1 != old.slot1)
+			{
+				vars.nah_end = 1;
 				return true;
 			}
 		}
