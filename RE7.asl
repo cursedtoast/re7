@@ -1,6 +1,6 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last updated 12/17/2017
+//Last updated 1/19/2018
 
 //Special thanks to:
 //CarcinogenSDA (you know why)
@@ -198,6 +198,19 @@ startup
 	settings.Add("nah_didntasplode", false, "Escaped the explosion (post-horde)", "nah");
 	settings.Add("nah_lucasroom", false, "Reached the Lucas boss room", "nah");
 	settings.Add("nah_end", false, "End", "nah");
+	settings.Add("eoz", false, "End of Zoe");
+	settings.Add("eoz_cure1", false, "Cure for Type-E Infection", "eoz");
+	settings.Add("eoz_usedcure", false, "Used Cure", "eoz");
+	settings.Add("eoz_zoesafe", false, "Placed Zoe in Safe Room (triggers upon entering)", "eoz");
+	settings.Add("eoz_boat", false, "Reached the Boat", "eoz");
+	settings.Add("eoz_cure2", false, "Second Cure for Type-E Infection (on boat)", "eoz");
+	settings.Add("eoz_jack1", false, "Defeated Jack (on boat)", "eoz");
+	settings.Add("eoz_gatorswamp", false, "Made it through the Alligator Swamp", "eoz");
+	settings.Add("eoz_cemetery", false, "Reached the Cemetery", "eoz");
+	settings.Add("eoz_church", false, "Reached the Church", "eoz");
+	settings.Add("eoz_arm", false, "AMG-78", "eoz");
+	settings.Add("eoz_mainhall", false, "Reached the Baker's Main Hall", "eoz");
+	settings.Add("eoz_end", false, "End", "eoz");
 }
 
 init
@@ -274,6 +287,18 @@ init
 	vars.nah_didntasplode = 0;
 	vars.nah_lucasroom = 0;
 	vars.nah_end = 0;
+	vars.eoz_cure1 = 0;
+	vars.eoz_usedcure = 0;
+	vars.eoz_zoesafe = 0;
+	vars.eoz_boat = 0;
+	vars.eoz_cure2 = 0;
+	vars.eoz_jack1 = 0;
+	vars.eoz_gatorswamp = 0;
+	vars.eoz_cemetery = 0;
+	vars.eoz_church = 0;
+	vars.eoz_arm = 0;
+	vars.eoz_mainhall = 0;
+	vars.eoz_end = 0;
 	vars.isdead = 0;
 	if (modules.First().ModuleMemorySize == 241680384)
 	{
@@ -303,6 +328,13 @@ start
 			return true;
 		}
 		else if (current.map == "c04_Ship3FInfirmaryPast")
+		{
+			return true;
+		}
+	}
+	if (settings["eoz"])
+	{
+		if (current.map == "sm0878_Carpet08A")
 		{
 			return true;
 		}
@@ -400,6 +432,18 @@ update
 		vars.nah_didntasplode = 0;
 		vars.nah_lucasroom = 0;
 		vars.nah_end = 0;
+		vars.eoz_cure1 = 0;
+		vars.eoz_usedcure = 0;
+		vars.eoz_zoesafe = 0;
+		vars.eoz_boat = 0;
+		vars.eoz_cure2 = 0;
+		vars.eoz_jack1 = 0;
+		vars.eoz_gatorswamp = 0;
+		vars.eoz_cemetery = 0;
+		vars.eoz_church = 0;
+		vars.eoz_arm = 0;
+		vars.eoz_mainhall = 0;
+		vars.eoz_end = 0;
 		vars.isdead = 0;
 	}
 }
@@ -1370,6 +1414,130 @@ split
 			{
 				vars.nah_end = 1;
 				return true;
+			}
+		}
+	}
+	if (settings["eoz"])
+	{
+		if (settings["eoz_cure1"])
+		{
+			if (vars.eoz_cure1 == 0)
+			{
+				if (current.slot1 == "NumaItem030" || current.slot2 == "NumaItem030" || current.slot3 == "NumaItem030" || current.slot4 == "NumaItem030" || current.slot5 == "NumaItem030" || current.slot6 == "NumaItem030" || current.slot7 == "NumaItem030" || current.slot8 == "NumaItem030" || current.slot9 == "NumaItem030" || current.slot10 == "NumaItem030" || current.slot11 == "NumaItem030" || current.slot12 == "NumaItem030" || current.slot13 == "NumaItem030" || current.slot14 == "NumaItem030" || current.slot15 == "NumaItem030" || current.slot16 == "NumaItem030" || current.slot17 == "NumaItem030" || current.slot18 == "NumaItem030" || current.slot19 == "NumaItem030" || current.slot20 == "NumaItem030")
+				{
+					vars.eoz_cure1 = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_usedcure"])
+		{
+			if (vars.eoz_usedcure == 0)
+			{
+				if (old.slot1 == "NumaItem030" && current.slot1 != "NumaItem030" || old.slot2 == "NumaItem030" && current.slot2 != "NumaItem030" || old.slot3 == "NumaItem030" && current.slot3 != "NumaItem030" || old.slot4 == "NumaItem030" && current.slot4 != "NumaItem030" || old.slot5 == "NumaItem030" && current.slot5 != "NumaItem030" || old.slot6 == "NumaItem030" && current.slot6 != "NumaItem030" || old.slot7 == "NumaItem030" && current.slot7 != "NumaItem030" || old.slot8 == "NumaItem030" && current.slot8 != "NumaItem030" && current.isPaused || old.slot9 == "NumaItem030" && current.slot9 != "NumaItem030" || old.slot10 == "NumaItem030" && current.slot10 != "NumaItem030" || old.slot11 == "NumaItem030" && current.slot11 != "NumaItem030" || old.slot12 == "NumaItem030" && current.slot12 != "NumaItem030" || old.slot13 == "NumaItem030" && current.slot13 != "NumaItem030" && current.isPaused || old.slot14 == "NumaItem030" && current.slot14 != "NumaItem030" && current.isPaused || old.slot15 == "NumaItem030" && current.slot15 != "NumaItem030")
+				{
+					vars.eoz_usedcure = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_zoesafe"])
+		{
+			if (vars.eoz_zoesafe == 0)
+			{
+				if (current.map == "c09_CampSafeRoomInside")
+				{
+					vars.eoz_zoesafe = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_boat"])
+		{
+			if (vars.eoz_boat == 0)
+			{
+				if (current.map == "c09_SteamBoat3F")
+				{
+					vars.eoz_boat = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_jack1"])
+		{
+			if (vars.eoz_jack1 == 0)
+			{
+				if (current.map == "c09_SteamBoatB1FCorridor01")
+				{
+					vars.eoz_jack1 = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_gatorswamp"])
+		{
+			if (vars.eoz_gatorswamp == 0)
+			{
+				if (current.map == "c09_MoldSwampGround05")
+				{
+					vars.eoz_gatorswamp = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_cemetery"])
+		{
+			if (vars.eoz_cemetery == 0)
+			{
+				if (current.map == "c09_Cemetery")
+				{
+					vars.eoz_cemetery = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_church"])
+		{
+			if (vars.eoz_church == 0)
+			{
+				if (current.map == "c09_Church")
+				{
+					vars.eoz_church = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_arm"])
+		{
+			if (vars.eoz_arm == 0)
+			{
+				if (current.slot1 == "CH9_WP001" || current.slot2 == "CH9_WP001" || current.slot3 == "CH9_WP001" || current.slot4 == "CH9_WP001" || current.slot5 == "CH9_WP001" || current.slot6 == "CH9_WP001" || current.slot7 == "CH9_WP001" || current.slot8 == "CH9_WP001" || current.slot9 == "CH9_WP001" || current.slot10 == "CH9_WP001" || current.slot11 == "CH9_WP001" || current.slot12 == "CH9_WP001" || current.slot13 == "CH9_WP001" || current.slot14 == "CH9_WP001" || current.slot15 == "CH9_WP001" || current.slot16 == "CH9_WP001" || current.slot17 == "CH9_WP001" || current.slot18 == "CH9_WP001" || current.slot19 == "CH9_WP001" || current.slot20 == "CH9_WP001")
+				{
+					vars.eoz_arm = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_mainhall"])
+		{
+			if (vars.eoz_mainhall == 0)
+			{
+				if (current.map == "C03_MainHouseHall")
+				{
+					vars.eoz_mainhall = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_end"])
+		{
+			if (vars.eoz_end == 0)
+			{
+				if (current.map == "c03_MainHouseHall" && current.slot1 != "NumaItem031")
+				{
+					vars.eoz_end = 1;
+					return true;
+				}
 			}
 		}
 	}
