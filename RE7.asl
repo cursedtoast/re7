@@ -1,6 +1,6 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last updated 1/19/2018
+//Last updated 1/20/2018
 
 //Special thanks to:
 //CarcinogenSDA (you know why)
@@ -1459,6 +1459,17 @@ split
 				if (current.map == "c09_SteamBoat3F")
 				{
 					vars.eoz_boat = 1;
+					return true;
+				}
+			}
+		}
+		if (settings["eoz_cure2"])
+		{
+			if (vars.eoz_cure2 == 0)
+			{
+				if (current.slot1 == "NumaItem031" || current.slot2 == "NumaItem031" || current.slot3 == "NumaItem031" || current.slot4 == "NumaItem031" || current.slot5 == "NumaItem031" || current.slot6 == "NumaItem031" || current.slot7 == "NumaItem031" || current.slot8 == "NumaItem031" || current.slot9 == "NumaItem031" || current.slot10 == "NumaItem031" || current.slot11 == "NumaItem031" || current.slot12 == "NumaItem031" || current.slot13 == "NumaItem031" || current.slot14 == "NumaItem031" || current.slot15 == "NumaItem031" || current.slot16 == "NumaItem031" || current.slot17 == "NumaItem031" || current.slot18 == "NumaItem031" || current.slot19 == "NumaItem031" || current.slot20 == "NumaItem031")
+				{
+					vars.eoz_cure2 = 1;
 					return true;
 				}
 			}
