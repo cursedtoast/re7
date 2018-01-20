@@ -1533,7 +1533,7 @@ split
 		{
 			if (vars.eoz_mainhall == 0)
 			{
-				if (current.map == "C03_MainHouseHall")
+				if (current.map == "c03_MainHouseHall")
 				{
 					vars.eoz_mainhall = 1;
 					return true;
@@ -1544,7 +1544,7 @@ split
 		{
 			if (vars.eoz_end == 0)
 			{
-				if (current.map == "c03_MainHouseHall" && current.slot1 != "NumaItem031")
+				if (current.map == "c03_MainHouseHall" && current.slot1 != "NumaItem031" && vars.isdead == 0)
 				{
 					vars.eoz_end = 1;
 					return true;
