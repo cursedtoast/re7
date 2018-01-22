@@ -1441,7 +1441,7 @@ split
 		}
 		if (settings["nah_end"])
 		{
-			if (vars.nah_end == 0 && old.map == "c08_BossRoom01" && current.slot1 != old.slot1)
+			if (vars.nah_end == 0 && old.map == "c08_BossRoom01" && current.slot1 != old.slot1 && vars.isPaused == false)
 			{
 				vars.nah_end = 1;
 				return true;
