@@ -20,3 +20,7 @@ Yup. Disable "scriptable autosplitter" in your layout. Follow the instructions a
 Make sure you have the split checkmarked as explained above. If that doesn't work, or if a split of yours split at the wrong time, contact me.
 
 <a href="https://twitch.streamlabs.com/cursedtoast"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/panel-98055730-image-6148898b4df0d7ac-320.png"></a>
+
+# Special thanks
+
+Psarthex, zgl, qvaku, and DarkRageGames for pooling together funds to purchase my copy of the Cero D version, so that I could update this to include support.
