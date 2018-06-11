@@ -199,6 +199,7 @@ start
 update
 {
 	
+
 	// Update inventory IDs
 	current.inventory = new string[20].Select((_, i) => {
 		StringBuilder sb = new StringBuilder();
@@ -214,7 +215,6 @@ update
 
 split
 {
-
 	// Item splits
 	string[] currentInventory = (current.inventory as string[]);
 	string[] oldInventory = (old.inventory as string[]); // throws error first update, will be fine afterwards.
@@ -251,7 +251,6 @@ split
 		return true;
 	}
 }
-
 
 isLoading
 {
