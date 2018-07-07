@@ -1,11 +1,10 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last updated 7/06/2018
+//Last updated 1/21/2018
 
 //Special thanks to:
 //CarcinogenSDA (you know why)
 //Dchaps - programming support
-//Souzooka - programming support
 //shiftweave - programming support
 //mgr.inz.Player - inventory memory value support
 //Theumer115 - inventory memory value support
@@ -38,7 +37,7 @@ state("re7", "1.3")
 
 state("re7", "1.4")
 {
-	int isPaused : "re7.exe", 0x082186C0, 0x28, 0x30, 0x68, 0x150;
+	int isPaused : "re7.exe", 0x081DE800, 0x60, 0x450, 0x20, 0x0, 0x98;
 	string128 map : "re7.exe", 0x081DE6A8, 0x700, 0x0;
 	int isdying : "re7.exe", 0x081E4148, 0x60;
 }
