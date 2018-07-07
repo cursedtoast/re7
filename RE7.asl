@@ -323,5 +323,5 @@ split
 
 isLoading
 {
-	return current.gamePauseState != 0 && current.gamePauseState != 262400;
+	return current.gamePauseState != 0 && current.gamePauseState != 262400 && current.gamePauseState != 8;
 }
