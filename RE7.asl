@@ -259,6 +259,7 @@ split
 		}
 	}
 
+
     //Removed item splits
 
     var removedItems = oldInventory.Except(currentInventory);
@@ -272,7 +273,7 @@ split
         }
     }
 
-    if (removedItems.Contains("SerumComplete") && vars.isdead == 0)
+    if (current.inventory.Count(v => v == "Serum") == 1)
     {
         if (!vars.splits.Contains("injectedJack"))
         {
