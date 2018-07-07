@@ -263,7 +263,7 @@ split
 
   foreach (string item in removedItems)
   {
-    if (vars.isdead == 0 && vars.splits.Contains("removed" + item))
+    if (vars.isdead == 0 && !vars.splits.Contains("removed" + item))
     {
       return settings["removed" + item];
     }
