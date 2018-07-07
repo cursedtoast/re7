@@ -317,38 +317,38 @@ split
         }
     }
 
-  // Map splits
+	// Map splits
     if (current.map != old.map)
-  {
-    if (current.map == "c08_MiningPassage02_static" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map) || current.map == "c08_MiningPassage02" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map))
-    {
-      vars.splits.Add(current.map);
-      return settings["nah_bombgone"];
-    }
-    else if (!vars.splits.Contains(current.map))
-    {
-      vars.splits.Add(current.map);
-      return settings[current.map];
-    }
-  }
+	{
+		if (current.map == "c08_MiningPassage02_static" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map) || current.map == "c08_MiningPassage02" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map))
+        {
+            vars.splits.Add(current.map);
+            return settings["nah_bombgone"];
+        }
+        else if (!vars.splits.Contains(current.map))
+		{
+			vars.splits.Add(current.map);
+			return settings[current.map];
+		}
+	}
 
-  if (current.map == "c01_Outside01" && current.inventory[0] != "MailMia" && !vars.splits.Contains("welcome2family"))
-  {
-    vars.splits.Add("welcome2family");
-    return settings["welcome2family"];
-  }
+	if (current.map == "c01_Outside01" && current.inventory[0] != "MailMia" && !vars.splits.Contains("welcome2family"))
+	{
+		vars.splits.Add("welcome2family");
+		return settings["welcome2family"];
+	}
 
-  if (current.map == "c08_BossRoom01" && current.inventory[0] != old.inventory[0] && !vars.splits.Contains("nah_end"))
-  {
-    vars.splits.Add("nah_end");
-    return settings["nah_end"];
-  }
+    if (current.map == "c08_BossRoom01" && current.inventory[0] != old.inventory[0] && !vars.splits.Contains("nah_end"))
+	{
+		vars.splits.Add("nah_end");
+		return settings["nah_end"];
+	}
 
-  if (current.map == "c03_MainHouseHall" && current.inventory[0] != "NumaItem031" && !vars.splits.Contains("eoz_end"))
-  {
-    vars.splits.Add("eoz_end");
-    return settings["eoz_end"];
-  }
+    if (current.map == "c03_MainHouseHall" && current.inventory[0] != "NumaItem031" && !vars.splits.Contains("eoz_end"))
+	{
+		vars.splits.Add("eoz_end");
+		return settings["eoz_end"];
+	}
 }
 
 isLoading
