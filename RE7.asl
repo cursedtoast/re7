@@ -38,6 +38,7 @@ state("re7", "1.3")
 state("re7", "1.4")
 {
 	int isPaused : "re7.exe", 0x082186C0, 0x28, 0x30, 0x68, 0x150;
+  int gamePauseState: "re7.exe", 0x082186C0, 0x28, 0x428, 0x40, 0x28, 0x104;
 	string128 map : "re7.exe", 0x081DE6A8, 0x700, 0x0;
 	int isdying : "re7.exe", 0x081E4148, 0x60;
 }
@@ -70,7 +71,7 @@ startup
 	settings.Add("WorkroomKey", false, "Dissection Room Key", "maingame");
 	settings.Add("3CrestKeyC", false, "Red Dog Head", "maingame");
 	settings.Add("ChainSaw", false, "Chainsaw", "maingame");
-	settings.Add("chainsawduel", false, "Finished chainsaw fight", "maingame");
+	settings.Add("removedChainSaw", false, "Finished chainsaw fight", "maingame");
 	settings.Add("MorgueKey", false, "Scorpion Key", "maingame");
 	settings.Add("c03_TrailerHouse", false, "Reached the trailer (first time)", "maingame");
 	settings.Add("c03_OldHouse1FEntrance01", false, "Reached the Old House", "maingame");
@@ -81,7 +82,7 @@ startup
 	settings.Add("TalismanKey", false, "Crow Key", "maingame");
 	settings.Add("c03_OldHouse2FHallway02", false, "Entered Crow Door (after falling down hole)", "maingame");
 	settings.Add("Lantern", false, "Lantern", "maingame");
-	settings.Add("usedlantern", false, "Placed Lantern (to unlock door)", "maingame");
+	settings.Add("removedLantern", false, "Placed Lantern (to unlock door)", "maingame");
 	settings.Add("SerumMaterialA", false, "D-Series Arm", "maingame");
 	settings.Add("Magnum", false, "Magnum", "maingame");
 	settings.Add("MasterKey", false, "Snake Key", "maingame");
@@ -95,7 +96,7 @@ startup
 	settings.Add("Timebomb", false, "Timebomb", "maingame");
 	settings.Add("SerumMaterialB", false, "D-Series Head", "maingame");
 	settings.Add("SerumComplete", false, "Completed Serum", "maingame");
-	settings.Add("hittheroadjack", false, "Injected Jack", "maingame");
+	settings.Add("removedSerumComplete", false, "Injected Jack", "maingame");
 	settings.Add("EvelynRadar1", false, "Mia Start", "maingame");
 	settings.Add("fuse2", false, "Fuse 2 (ship)", "maingame");
 	settings.Add("FoundFootage050", false, "Mia Videotape (picked up)", "maingame");
@@ -107,7 +108,7 @@ startup
 	settings.Add("SerumTypeE", false, "Necrotoxin", "maingame");
 	settings.Add("injectedbitch", false, "Injected Evie", "maingame");
 	settings.Add("Handgun_Albert", false, "Albert Gun (Playtime's over)", "maingame");
-	settings.Add("end", false, "End", "maingame");
+	settings.Add("removedHandgun_Albert", false, "End", "maingame");
 	settings.Add("nah", false, "Not a Hero");
 	settings.Add("c08_SaltMineCorridor01", false, "Reached the new section of the mine", "nah");
 	settings.Add("KeyItem05Ch8", false, "Gear", "nah");
@@ -144,8 +145,9 @@ init
 {
 	vars.splits = new HashSet<string>();
 	vars.inventoryPtr = IntPtr.Zero;
-    vars.fuse3PickedUp = 0;
-    vars.fuse2PickedUp = 0;
+  vars.fuse3PickedUp = 0;
+  vars.fuse2PickedUp = 0;
+
 	switch (modules.First().ModuleMemorySize)
 	{
 		case (241680384):
@@ -170,11 +172,9 @@ init
 			break;
 	}
 
-
-        // Track inventory IDs
-	    current.inventory = new string[20].Select((_, i) => {
-		StringBuilder sb = new StringBuilder();
-        sb.Capacity = 100;
+	// Track inventory IDs
+	current.inventory = new string[20].Select((_, i) => {
+		StringBuilder sb = new StringBuilder(100);
 		IntPtr ptr;
 		new DeepPointer(vars.inventoryPtr, 0x60, 0x20, 0x30 + (i * 8), 0x28, 0x80, 0x24).DerefOffsets(memory, out ptr);
 		memory.ReadString(ptr, sb);
@@ -201,12 +201,9 @@ start
 
 update
 {
-	
-
 	// Update inventory IDs
 	current.inventory = new string[20].Select((_, i) => {
-		StringBuilder sb = new StringBuilder();
-        sb.Capacity = 100;
+		StringBuilder sb = new StringBuilder(100);
 		IntPtr ptr;
 		new DeepPointer(vars.inventoryPtr, 0x60, 0x20, 0x30 + (i * 8), 0x28, 0x80, 0x24).DerefOffsets(memory, out ptr);
 		memory.ReadString(ptr, sb);
@@ -225,35 +222,34 @@ split
 	if (!currentInventory.SequenceEqual(oldInventory))
 	{
 		string[] delta = (currentInventory as string[]).Where((v, i) => v != oldInventory[i]).ToArray();
+    if (delta.Contains("FuseCh4"))
+    {
+      if (vars.fuse2PickedUp == 0 && current.map != "c04_Ship1FCorridor") 
+        {
+            vars.fuse2PickedUp = 1;
+            return settings["fuse2"];
+        }
+        else if (vars.fuse3PickedUp == 0 && current.map == "c04_Ship1FCorridor") 
+        {
+            if (settings["fuse2"])
+            {
+                if (vars.fuse2PickedUp == 1)
+                {
+                    vars.fuse3PickedUp = 1;
+                    return settings["fuse3"];
+                }
+            }
+            else
+            {
+                vars.fuse3PickedUp = 1;
+                return settings["fuse3"];
+            }
+        }
+    }
 
 		foreach (string item in delta)
 		{
-			if (item == "FuseCh4")
-            {
-                if (vars.fuse2PickedUp == 0 && current.map != "c04_Ship1FCorridor") 
-                {
-                    vars.fuse2PickedUp = 1;
-                    return settings["fuse2"];
-                }
-                else if (vars.fuse3PickedUp == 0 && current.map == "c04_Ship1FCorridor") 
-                {
-                    if (settings["fuse2"])
-                    {
-                        if (vars.fuse2PickedUp == 1)
-                        {
-                            vars.fuse3PickedUp = 1;
-                            return settings["fuse3"];
-                        }
-                    }
-                    else
-                    {
-                        vars.fuse3PickedUp = 1;
-                        return settings["fuse3"];
-                    }
-                    
-                }
-            }
-            else if (!vars.splits.Contains(item))
+			if (!vars.splits.Contains(item))
 			{
 				vars.splits.Add(item);
 				return settings[item];
@@ -261,99 +257,70 @@ split
 		}
 	}
 
-    //Removed item splits
+  //Removed item splits
+  List<string> removedItems = oldInventory.Except(currentInventory).ToList();
 
-    var removedItems = oldInventory.Except(currentInventory);
-
-    if (removedItems.Contains("ChainSaw") && vars.isdead == 0)
+  foreach (string item in removedItems)
+  {
+    if (vars.isdead == 0 && vars.splits.Contains("removed" + item))
     {
-        if (!vars.splits.Contains("removedSaw"))
-        {
-            vars.splits.Add("removedSaw");
-            return settings["chainsawduel"];
-        }
+      return settings["removed" + item];
     }
+  }
 
-    if (removedItems.Contains("SerumComplete") && vars.isdead == 0)
-    {
-        if (!vars.splits.Contains("injectedJack"))
-        {
-            vars.splits.Add("injectedJack");
-            return settings["hittheroadjack"];
-        }
-    }
+  if (removedItems.Contains("SerumTypeE") && vars.isdead == 0 && current.map == "c04_c013F")
+  {
+      if (!vars.splits.Contains("injectedEvieWithSerum"))
+      {
+          vars.splits.Add("injectedEvieWithSerum");
+          return settings["injectedbitch"];
+      }
+  }
 
-    if (removedItems.Contains("Lantern") && vars.isdead == 0)
-    {
-        if (!vars.splits.Contains("usedTheLantern"))
-        {
-            vars.splits.Add("usedTheLantern");
-            return settings["usedlantern"];
-        }
-    }
+  if (removedItems.Contains("NumaItem030") && settings["eoz"])
+  {
+      if (!vars.splits.Contains("eoz_usedcure"))
+      {
+          vars.splits.Add("eoz_usedcure");
+          return settings["eoz_usedcure"];
+      }
+  }
 
-    if (removedItems.Contains("SerumTypeE") && vars.isdead == 0 && current.map == "c04_c013F")
-    {
-        if (!vars.splits.Contains("injectedEvieWithSerum"))
-        {
-            vars.splits.Add("injectedEvieWithSerum");
-            return settings["injectedbitch"];
-        }
-    }
-
-    if (removedItems.Contains("Handgun_Albert"))
-    {
-        if (!vars.splits.Contains("endMainCampaign"))
-        {
-            vars.splits.Add("endMainCampaign");
-            return settings["end"];
-        }
-    }
-
-    if (removedItems.Contains("NumaItem030") && settings["eoz"])
-    {
-        if (!vars.splits.Contains("eoz_usedcure"))
-        {
-            vars.splits.Add("eoz_usedcure");
-            return settings["eoz_usedcure"];
-        }
-    }
-
-	// Map splits
+  // Map splits
     if (current.map != old.map)
-	{
-		if (current.map == "c08_MiningPassage02_static" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map) || current.map == "c08_MiningPassage02" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map))
-        {
-            vars.splits.Add(current.map);
-            return settings["nah_bombgone"];
-        }
-        else if (!vars.splits.Contains(current.map))
-		{
-			vars.splits.Add(current.map);
-			return settings[current.map];
-		}
-	}
+  {
+    if (current.map == "c08_MiningPassage02_static" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map) || current.map == "c08_MiningPassage02" && old.map == "c08_MiningTunnel01" && !vars.splits.Contains(current.map))
+    {
+      vars.splits.Add(current.map);
+      return settings["nah_bombgone"];
+    }
+    else if (!vars.splits.Contains(current.map))
+    {
+      vars.splits.Add(current.map);
+      return settings[current.map];
+    }
+  }
 
-	if (current.map == "c01_Outside01" && current.inventory[0] != "MailMia" && !vars.splits.Contains("welcome2family"))
-	{
-		vars.splits.Add("welcome2family");
-		return settings["welcome2family"];
-	}
+  if (current.map == "c01_Outside01" && current.inventory[0] != "MailMia" && !vars.splits.Contains("welcome2family"))
+  {
+    vars.splits.Add("welcome2family");
+    return settings["welcome2family"];
+  }
 
-    if (current.map == "c08_BossRoom01" && current.inventory[0] != old.inventory[0] && !vars.splits.Contains("nah_end"))
-	{
-		vars.splits.Add("nah_end");
-		return settings["nah_end"];
-	}
+  if (current.map == "c08_BossRoom01" && current.inventory[0] != old.inventory[0] && !vars.splits.Contains("nah_end"))
+  {
+    vars.splits.Add("nah_end");
+    return settings["nah_end"];
+  }
 
-    if (current.map == "c03_MainHouseHall" && current.inventory[0] != "NumaItem031" && !vars.splits.Contains("eoz_end"))
-	{
-		vars.splits.Add("eoz_end");
-		return settings["eoz_end"];
-	}
+  if (current.map == "c03_MainHouseHall" && current.inventory[0] != "NumaItem031" && !vars.splits.Contains("eoz_end"))
+  {
+    vars.splits.Add("eoz_end");
+    return settings["eoz_end"];
+  }
 }
 
 isLoading
 {
-	if (current.isPaused != old.isPaused) { return current.isPaused == 1; }
+	return current.gamePauseState != 0;
 }
