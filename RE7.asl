@@ -308,7 +308,16 @@ split
         }
     }
 
-    if (removedItems.Contains("NumaItem030") && settings["eoz"])
+    if (removedItems.Contains("MachineGun"))
+    {
+        if (!vars.splits.Contains("videotapeend"))
+        {
+            vars.splits.Add("videotapeend");
+            return settings["videotapeend"];
+        }
+    }
+
+	    if (removedItems.Contains("NumaItem030") && settings["eoz"])
     {
         if (!vars.splits.Contains("eoz_usedcure"))
         {
