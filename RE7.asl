@@ -72,7 +72,7 @@ startup
 	settings.Add("WorkroomKey", false, "Dissection Room Key", "maingame");
 	settings.Add("3CrestKeyC", false, "Red Dog Head", "maingame");
 	settings.Add("ChainSaw", false, "Chainsaw", "maingame");
-	settings.Add("removedChainSaw", false, "Finished chainsaw fight", "maingame");
+	settings.Add("chainsawduel", false, "Finished chainsaw fight", "maingame");
 	settings.Add("MorgueKey", false, "Scorpion Key", "maingame");
 	settings.Add("c03_TrailerHouse", false, "Reached the trailer (first time)", "maingame");
 	settings.Add("c03_OldHouse1FEntrance01", false, "Reached the Old House", "maingame");
@@ -83,7 +83,7 @@ startup
 	settings.Add("TalismanKey", false, "Crow Key", "maingame");
 	settings.Add("c03_OldHouse2FHallway02", false, "Entered Crow Door (after falling down hole)", "maingame");
 	settings.Add("Lantern", false, "Lantern", "maingame");
-	settings.Add("removedLantern", false, "Placed Lantern (to unlock door)", "maingame");
+	settings.Add("usedlantern", false, "Placed Lantern (to unlock door)", "maingame");
 	settings.Add("SerumMaterialA", false, "D-Series Arm", "maingame");
 	settings.Add("Magnum", false, "Magnum", "maingame");
 	settings.Add("MasterKey", false, "Snake Key", "maingame");
@@ -97,7 +97,7 @@ startup
 	settings.Add("Timebomb", false, "Timebomb", "maingame");
 	settings.Add("SerumMaterialB", false, "D-Series Head", "maingame");
 	settings.Add("SerumComplete", false, "Completed Serum", "maingame");
-	settings.Add("removedSerumComplete", false, "Injected Jack", "maingame");
+	settings.Add("hittheroadjack", false, "Injected Jack", "maingame");
 	settings.Add("EvelynRadar1", false, "Mia Start", "maingame");
 	settings.Add("fuse2", false, "Fuse 2 (ship)", "maingame");
 	settings.Add("FoundFootage050", false, "Mia Videotape (picked up)", "maingame");
@@ -109,7 +109,7 @@ startup
 	settings.Add("SerumTypeE", false, "Necrotoxin", "maingame");
 	settings.Add("injectedbitch", false, "Injected Evie", "maingame");
 	settings.Add("Handgun_Albert", false, "Albert Gun (Playtime's over)", "maingame");
-	settings.Add("removedHandgun_Albert", false, "End", "maingame");
+	settings.Add("end", false, "End", "maingame");
 	settings.Add("nah", false, "Not a Hero");
 	settings.Add("c08_SaltMineCorridor01", false, "Reached the new section of the mine", "nah");
 	settings.Add("KeyItem05Ch8", false, "Gear", "nah");
@@ -212,7 +212,7 @@ update
 	}).ToArray();
 
   vars.isdead = (current.isdying == 0 ? 1 : 0);
-	if (timer.CurrentPhase == TimerPhase.NotRunning) { vars.splits.Clear(); }
+	if (timer.CurrentPhase == TimerPhase.NotRunning) { vars.splits.Clear(); vars.fuse2PickedUp = 0; vars.fuse3PickedUp = 0; }
 }
 
 split
@@ -223,34 +223,35 @@ split
 	if (!currentInventory.SequenceEqual(oldInventory))
 	{
 		string[] delta = (currentInventory as string[]).Where((v, i) => v != oldInventory[i]).ToArray();
-    if (delta.Contains("FuseCh4"))
-    {
-      if (vars.fuse2PickedUp == 0 && current.map != "c04_Ship1FCorridor") 
-        {
-            vars.fuse2PickedUp = 1;
-            return settings["fuse2"];
-        }
-        else if (vars.fuse3PickedUp == 0 && current.map == "c04_Ship1FCorridor") 
-        {
-            if (settings["fuse2"])
-            {
-                if (vars.fuse2PickedUp == 1)
-                {
-                    vars.fuse3PickedUp = 1;
-                    return settings["fuse3"];
-                }
-            }
-            else
-            {
-                vars.fuse3PickedUp = 1;
-                return settings["fuse3"];
-            }
-        }
-    }
 
 		foreach (string item in delta)
 		{
-			if (!vars.splits.Contains(item))
+			if (item == "FuseCh4")
+            {
+                if (vars.fuse2PickedUp == 0 && current.map != "c04_Ship1FCorridor") 
+                {
+                    vars.fuse2PickedUp = 1;
+                    return settings["fuse2"];
+                }
+                else if (vars.fuse3PickedUp == 0 && current.map == "c04_Ship1FCorridor") 
+                {
+                    if (settings["fuse2"])
+                    {
+                        if (vars.fuse2PickedUp == 1)
+                        {
+                            vars.fuse3PickedUp = 1;
+                            return settings["fuse3"];
+                        }
+                    }
+                    else
+                    {
+                        vars.fuse3PickedUp = 1;
+                        return settings["fuse3"];
+                    }
+                    
+                }
+            }
+            else if (!vars.splits.Contains(item))
 			{
 				vars.splits.Add(item);
 				return settings[item];
@@ -258,34 +259,63 @@ split
 		}
 	}
 
-  //Removed item splits
-  List<string> removedItems = oldInventory.Except(currentInventory).ToList();
+    //Removed item splits
 
-  foreach (string item in removedItems)
-  {
-    if (vars.isdead == 0 && !vars.splits.Contains("removed" + item))
+    var removedItems = oldInventory.Except(currentInventory);
+
+    if (removedItems.Contains("ChainSaw") && vars.isdead == 0)
     {
-      return settings["removed" + item];
+        if (!vars.splits.Contains("removedSaw"))
+        {
+            vars.splits.Add("removedSaw");
+            return settings["chainsawduel"];
+        }
     }
-  }
 
-  if (removedItems.Contains("SerumTypeE") && vars.isdead == 0 && current.map == "c04_c013F")
-  {
-      if (!vars.splits.Contains("injectedEvieWithSerum"))
-      {
-          vars.splits.Add("injectedEvieWithSerum");
-          return settings["injectedbitch"];
-      }
-  }
+    if (removedItems.Contains("SerumComplete") && vars.isdead == 0)
+    {
+        if (!vars.splits.Contains("injectedJack"))
+        {
+            vars.splits.Add("injectedJack");
+            return settings["hittheroadjack"];
+        }
+    }
 
-  if (removedItems.Contains("NumaItem030") && settings["eoz"])
-  {
-      if (!vars.splits.Contains("eoz_usedcure"))
-      {
-          vars.splits.Add("eoz_usedcure");
-          return settings["eoz_usedcure"];
-      }
-  }
+    if (removedItems.Contains("Lantern") && vars.isdead == 0)
+    {
+        if (!vars.splits.Contains("usedTheLantern"))
+        {
+            vars.splits.Add("usedTheLantern");
+            return settings["usedlantern"];
+        }
+    }
+
+    if (removedItems.Contains("SerumTypeE") && vars.isdead == 0 && current.map == "c04_c013F")
+    {
+        if (!vars.splits.Contains("injectedEvieWithSerum"))
+        {
+            vars.splits.Add("injectedEvieWithSerum");
+            return settings["injectedbitch"];
+        }
+    }
+
+    if (removedItems.Contains("Handgun_Albert"))
+    {
+        if (!vars.splits.Contains("endMainCampaign"))
+        {
+            vars.splits.Add("endMainCampaign");
+            return settings["end"];
+        }
+    }
+
+    if (removedItems.Contains("NumaItem030") && settings["eoz"])
+    {
+        if (!vars.splits.Contains("eoz_usedcure"))
+        {
+            vars.splits.Add("eoz_usedcure");
+            return settings["eoz_usedcure"];
+        }
+    }
 
   // Map splits
     if (current.map != old.map)
