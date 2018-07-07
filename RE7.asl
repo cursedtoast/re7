@@ -273,7 +273,7 @@ split
         }
     }
 
-    if (current.inventory.Count(v => v == "Serum") == 1)
+    if (currentInventory.Count(v => v == "Serum") == 1)
     {
         if (!vars.splits.Contains("injectedJack"))
         {
