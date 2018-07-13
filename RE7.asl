@@ -54,6 +54,7 @@ state("re7", "cerod")
 startup
 {
 	settings.Add("maingame", false, "Main Campaign");
+	settings.Add("meme", false, "No Guest House%", "maingame");
 	settings.Add("c01_Corridor01", false, "Reached the Guest House", "maingame");
 	settings.Add("ChainCutter", false, "Bolt Cutters", "maingame");
 	settings.Add("HandAxe", false, "Axe (first time)", "maingame");
@@ -195,6 +196,10 @@ start
 	if (settings["eoz"])
 	{
 		return (current.map == "sm0878_Carpet08A" || current.map == "c04_Ship3FInfirmaryPast");
+	}
+	if (settings["meme"])
+	{
+		return (current.map == "c03_MainHouse1FWash" && current.inventory[0] == "Knife");
 	}
 
 	return current.map == "c04_Ship3FInfirmaryPast";
