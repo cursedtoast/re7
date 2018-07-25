@@ -187,8 +187,6 @@ init
 
 start
 {	
-	if (current.map == old.map) { return false; }
-
 	if (settings["nah"])
 	{
 		return (current.map == "c04_CavePassage01" && current.inventory[0] == "CKnife" || current.map == "c04_Ship3FInfirmaryPast");
