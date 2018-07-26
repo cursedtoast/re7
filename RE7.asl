@@ -354,7 +354,7 @@ split
 	
 	if (current.map == "c03_MainHouse1FLDK" && !vars.splits.Contains("100family"))
 	{
-		vars.splits.add("100family");
+		vars.splits.Add("100family");
 		return settings["100family"];
 	}
 
