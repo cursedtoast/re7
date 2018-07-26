@@ -11,9 +11,9 @@ Make sure you compare against Game Time.
 
 Any problems? Reach out to me.
 
-# I already used your old version, will my splits still work?
+# I have a split request?
 
-Yup. Disable "scriptable autosplitter" in your layout. Follow the instructions above. From there, edit the old splits names to whatever you'd like.
+Great, reach out to me through the RE7 Speedrunning discord, and I'll see what I can do.
 
 # Something didn't split or split at the wrong time.
 
