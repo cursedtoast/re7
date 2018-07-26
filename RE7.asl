@@ -346,7 +346,7 @@ split
 		}
 	}
 
-	if (current.map == "c01_Outside01" && current.inventory[0] != "MailMia" && !vars.splits.Contains("welcome2family"))
+	if (current.map == "c01_Outside01" && current.inventory[0] != "MailMia" && && settings["100family"] == false && !vars.splits.Contains("welcome2family"))
 	{
 		vars.splits.Add("welcome2family");
 		return settings["welcome2family"];
