@@ -60,6 +60,7 @@ startup
 	settings.Add("HandAxe", false, "Axe (first time)", "maingame");
 	settings.Add("Fuse", false, "Fuse (Guest House)", "maingame");
 	settings.Add("welcome2family", false, "Welcome to the family (splits during drag scene)", "maingame");
+	settings.Add("100family", false, "100% run (splits during Zoe stapling hand)?", "welcome2family");
 	settings.Add("FloorDoorKey", false, "Hatch Key", "maingame");
 	settings.Add("Knife", false, "Knife", "maingame");
 	settings.Add("Handgun_M19", false, "M19 (Guest House gun)", "maingame");
