@@ -322,6 +322,11 @@ split
             return settings["videotapeend"];
         }
     }
+    
+    if (removedItems.Contains("FloorDoorKey") && settings["test_hatch")
+{
+	return settings["test_hatch"];
+}
 
 	    if (removedItems.Contains("NumaItem030") && settings["eoz"])
     {
@@ -371,10 +376,6 @@ split
 		return settings["eoz_end"];
 	}
 	
-	if (current.map != "c03_MainHouse1FPantry" && old.map == "c03_MainHouse1FPantry" && settings["test_hatch"])
-	{
-		return true;
-	}
 }
 
 isLoading
