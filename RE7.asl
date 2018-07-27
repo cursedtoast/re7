@@ -369,7 +369,6 @@ split
 		vars.splits.Add("eoz_end");
 		return settings["eoz_end"];
 	}
-	
 }
 
 isLoading
