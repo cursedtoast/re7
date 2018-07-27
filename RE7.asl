@@ -323,7 +323,7 @@ split
         }
     }
     
-    if (removedItems.Contains("FloorDoorKey") && settings["test_hatch")
+    if (removedItems.Contains("FloorDoorKey") && settings["test_hatch"])
 {
 	return settings["test_hatch"];
 }
