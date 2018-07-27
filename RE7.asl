@@ -142,7 +142,6 @@ startup
 	settings.Add("CH9_WP001", false, "AMG-78", "eoz");
 	settings.Add("c03_MainHouseHall", false, "Reached the Baker's Main Hall", "eoz");
 	settings.Add("eoz_end", false, "End", "eoz");
-	settings.Add("test_hatch", false, "Test split");
 }
 
 init
@@ -322,11 +321,6 @@ split
             return settings["videotapeend"];
         }
     }
-    
-    if (removedItems.Contains("FloorDoorKey") && settings["test_hatch"])
-{
-	return settings["test_hatch"];
-}
 
 	    if (removedItems.Contains("NumaItem030") && settings["eoz"])
     {
