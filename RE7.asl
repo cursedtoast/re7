@@ -142,6 +142,7 @@ startup
 	settings.Add("CH9_WP001", false, "AMG-78", "eoz");
 	settings.Add("c03_MainHouseHall", false, "Reached the Baker's Main Hall", "eoz");
 	settings.Add("eoz_end", false, "End", "eoz");
+	settings.Add("test_hatch", false, "Test split");
 }
 
 init
@@ -368,6 +369,11 @@ split
 	{
 		vars.splits.Add("eoz_end");
 		return settings["eoz_end"];
+	}
+	
+	if (current.map != "c03_MainHouse1FPantry" && old.map == "c03_MainHouse1FPantry" && settings["test_hatch"])
+	{
+		return true;
 	}
 }
 
