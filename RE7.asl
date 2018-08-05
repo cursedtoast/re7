@@ -127,7 +127,7 @@ startup
 	settings.Add("nah_bombgone", false, "Beat fat molded/Removed bomb (triggers after leaving area after removing bomb)", "nah");
 	settings.Add("c08_ShieldMachine_Entra", false, "Entered the Blast Door", "nah");
 	settings.Add("c08_MineTerminal01", false, "Escaped the explosion (post-horde)", "nah");
-	settings.Add("c08_BossRoom01", false, "Reached the Lucas boss room", "nah");
+	settings.Add("lucsbossRoom", false, "Reached the Lucas boss room", "nah");
 	settings.Add("nah_end", false, "End", "nah");
 	settings.Add("eoz", false, "End of Zoe");
 	settings.Add("NumaItem030", false, "Cure for Type-E Infection", "eoz");
@@ -356,6 +356,12 @@ split
 	{
 		vars.splits.Add("100family");
 		return settings["100family"];
+	}
+	
+	if (current.map == "c08_BossRoom01" && !vars.splits.Contains("lucsbossRoom"))
+	{
+		vars.splits.Add("lucsbossRoom");
+		return settings["lucsbossRoom"];
 	}
 
     if (old.map == "c08_BossRoom01" && current.inventory[0] != old.inventory[0] && !vars.splits.Contains("nah_end"))
