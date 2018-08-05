@@ -177,7 +177,7 @@ init
 
 	// Track inventory IDs
 	current.inventory = new string[20].Select((_, i) => {
-		StringBuilder sb = new StringBuilder(100);
+		StringBuilder sb = new StringBuilder(300);
 		IntPtr ptr;
 		new DeepPointer(vars.inventoryPtr, 0x60, 0x20, 0x30 + (i * 8), 0x28, 0x80, 0x24).DerefOffsets(memory, out ptr);
 		memory.ReadString(ptr, sb);
