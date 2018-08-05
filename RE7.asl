@@ -358,7 +358,7 @@ split
 		return settings["100family"];
 	}
 
-    if (current.map == "c08_BossRoom01" && current.inventory[0] != old.inventory[0] && !vars.splits.Contains("nah_end"))
+    if (old.map == "c08_BossRoom01" && current.inventory[0] != old.inventory[0] && !vars.splits.Contains("nah_end"))
 	{
 		vars.splits.Add("nah_end");
 		return settings["nah_end"];
