@@ -322,11 +322,19 @@ split
         }
     }
 
-	    if (removedItems.Contains("NumaItem030") && settings["eoz"])
+	if (settings["eoz"])
+	{
+		if (!vars.splits.Contains(""))
+		{
+			vars.splits.Add("");
+		}
+	}
+	
+	if (removedItems.Contains("NumaItem030"))
     {
-        if (!vars.splits.Contains("eoz_usedcure"))
+        if (!vars.splits.Contains("zoecuresplit"))
         {
-            vars.splits.Add("eoz_usedcure");
+            vars.splits.Add("zoecuresplit");
             return settings["eoz_usedcure"];
         }
     }
