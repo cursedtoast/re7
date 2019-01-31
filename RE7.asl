@@ -165,6 +165,7 @@ init
 			version = "1.4";
 			vars.inventoryPtr = 0x81E4148;
 			break;
+		case (162668544):
 		case (342978560):
 			version = "cerod";
 			vars.inventoryPtr = 0x93352C0;
