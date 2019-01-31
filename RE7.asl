@@ -210,7 +210,7 @@ update
 {
 		if (settings["evilmOnster"])
 	{
-		print(modules.First().ModuleMemorySize.ToString());
+		print("The value evilmOnster should give Toast is: " + modules.First().ModuleMemorySize.ToString());
 	}
 	// Update inventory IDs
 	current.inventory = new string[20].Select((_, i) => {
