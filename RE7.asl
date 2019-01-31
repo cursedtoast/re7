@@ -1,6 +1,6 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last updated 7/26/2018
+//Last updated 1/31/2019
 
 //Special thanks to:
 //CarcinogenSDA (you know why)
