@@ -53,6 +53,7 @@ state("re7", "cerod")
 
 startup
 {
+	settings.Add("evilmOnster", false, "evilmOnster");
 	settings.Add("maingame", false, "Main Campaign");
 	settings.Add("meme", false, "No Guest House%", "maingame");
 	settings.Add("c01_Corridor01", false, "Reached the Guest House", "maingame");
@@ -207,6 +208,10 @@ start
 
 update
 {
+		if (settings["evilmOnster"])
+	{
+		print(modules.First().ModuleMemorySize.ToString());
+	}
 	// Update inventory IDs
 	current.inventory = new string[20].Select((_, i) => {
 		StringBuilder sb = new StringBuilder(100);
