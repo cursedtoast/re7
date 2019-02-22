@@ -3,6 +3,7 @@
 //Last updated 1/31/2019
 
 //Special thanks to:
+// Souzooka - helping me re-code this to reduce lag and improving my coding in ASL.
 //CarcinogenSDA (you know why)
 //Dchaps - programming support
 //shiftweave - programming support
