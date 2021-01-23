@@ -1,6 +1,6 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last updated 1/31/2019
+//Last updated 1/22/2021
 
 //Special thanks to:
 // Souzooka - helping me re-code this to reduce lag and improving my coding in ASL. Couldn't have done this without him :)
@@ -50,6 +50,13 @@ state("re7", "cerod")
 	int gamePauseState: "re7.exe", 0x093698F0, 0x28, 0x428, 0x40, 0x28, 0x104;
 	string128 map : "re7.exe", 0x0932F7E8, 0x700, 0x0;
 	int isdying : "re7.exe", 0x093352C0, 0x60;
+}
+
+state("re7", "Buy RE8!! Version")
+{
+	int gamePauseState: "re7.exe", 0x081FB9F8, 0x108;
+	string128 map : "re7.exe", 0x081EACE0, 0x700, 0x0;
+	int isdying : "re7.exe", 0x081F24E8, 0x60;
 }
 
 startup
@@ -172,6 +179,10 @@ init
 			version = "cerod";
 			vars.inventoryPtr = 0x93352C0;
 			break;
+		case (142069760):
+			version = "Buy RE8!! Version";
+			vars.inventoryPtr = 0x081F24E8;
+			break;
 		default:
 			version = "1.1";
 			vars.inventoryPtr = 0x707FCD0;
@@ -209,6 +220,7 @@ start
 
 update
 {
+print(modules.First().ModuleMemorySize.ToString());
 	// Update inventory IDs
 	current.inventory = new string[20].Select((_, i) => {
 		StringBuilder sb = new StringBuilder(100);
