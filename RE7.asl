@@ -59,6 +59,13 @@ state("re7", "Buy RE8!! Version")
 	int isdying : "re7.exe", 0x081F24E8, 0x60;
 }
 
+state("re7", "2/25 Update")
+{
+	int gamePauseState: "re7.exe", 0x081FA818, 0x108;
+	string128 map : "re7.exe", 0x081E9B00, 0x700, 0x0;
+	int isdying : "re7.exe", 0x081F1308, 0x60;
+}
+
 startup
 {
 	settings.Add("maingame", false, "Main Campaign");
@@ -183,6 +190,10 @@ init
 			version = "Buy RE8!! Version";
 			vars.inventoryPtr = 0x081F24E8;
 			break;
+		case (142065664):
+			version = "2/25 Update";
+			vars.inventoryPtr = 0x081F1308;
+			break;
 		default:
 			version = "1.1";
 			vars.inventoryPtr = 0x707FCD0;
@@ -220,7 +231,7 @@ start
 
 update
 {
-print(modules.First().ModuleMemorySize.ToString());
+//print(modules.First().ModuleMemorySize.ToString());
 	// Update inventory IDs
 	current.inventory = new string[20].Select((_, i) => {
 		StringBuilder sb = new StringBuilder(100);
