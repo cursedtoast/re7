@@ -1,5 +1,9 @@
 # Resident Evil 7 Autosplitter
-Instructions:
+
+Care to buy me a coffee?
+https://streamlabs.com/cursedtoast/tip
+
+# Instructions
 
 Edit your splits and change the game name to "Resident Evil 7". A message should pop up saying an autosplitter by me is available. Click "Activate".
 
