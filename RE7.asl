@@ -1,6 +1,6 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last updated 1/22/2021
+//Last updated 12/20/2021
 
 //Special thanks to:
 // Souzooka - helping me re-code this to reduce lag and improving my coding in ASL. Couldn't have done this without him :)
@@ -12,33 +12,9 @@
 //DarkByte - inventory memory value support
 //Nexusphobiker - helping me find the most updated pointers in the 2/6/2017 RE7 update, and for teaching me how to find them again in the future.
 
-state("re7", "1.1")
-{
-	int isPaused : "re7.exe", 0x0707C290, 0x28, 0x30, 0x58, 0x730;
-	float igt : "re7.exe", 0x0704D5C8, 0x28, 0x428, 0x40, 0x28, 0x120;
-	string128 map : "re7.exe", 0x07046390, 0x700, 0x0;
-	int isdying : "re7.exe", 0x0707FCD0, 0x60;
-	//int coins : "re7.exe", 0x07047D58, 0x5A0, 0x170, 0x40, 0x80, 0x20;
-	//int files : "re7.exe", 0x07046398, 0xC0, 0x3B8, 0xB0, 0x78, 0x490; WIP. Coin and file count memory value is differnt per difficulty. This value is for Normal, apparently. Come back later when you found the difficulty memory value, I suppose.
-}
-
-state("re7", "1.2")
-{
-	int isPaused : "re7.exe", 0x708E260, 0x28, 0x30, 0x58, 0x730;
-	string128 map : "re7.exe", 0x7058360, 0x700, 0x0;
-	int isdying : "re7.exe", 0x07091CA0, 0x60;
-}
-
-state("re7", "1.3")
-{
-	int isPaused : "re7.exe", 0x071116A8, 0x28, 0x30, 0x58, 0x730;
-	string128 map : "re7.exe", 0x071492F8, 0x700, 0x0;
-	int isdying : "re7.exe", 0x070DADB0, 0x60;
-}
 
 state("re7", "1.4")
 {
-	int isPaused : "re7.exe", 0x082186C0, 0x28, 0x30, 0x68, 0x150;
   	int gamePauseState: "re7.exe", 0x082186C0, 0x28, 0x428, 0x40, 0x28, 0x104;
 	string128 map : "re7.exe", 0x081DE6A8, 0x700, 0x0;
 	int isdying : "re7.exe", 0x081E4148, 0x60;
@@ -46,10 +22,16 @@ state("re7", "1.4")
 
 state("re7", "cerod")
 {
-	int isPaused : "re7.exe", 0x093698F0, 0x30,0x30, 0x38, 0x58, 0x630;
 	int gamePauseState: "re7.exe", 0x093698F0, 0x28, 0x428, 0x40, 0x28, 0x104;
 	string128 map : "re7.exe", 0x0932F7E8, 0x700, 0x0;
 	int isdying : "re7.exe", 0x093352C0, 0x60;
+}
+
+state("re7", "cerod_nvidia")
+{
+	int gamePauseState: "re7.exe", 0x9358310, 0x28, 0x428, 0x40, 0x28, 0x104;
+	string128 map : "re7.exe", 0x931D8E8, 0x700, 0x0;
+	int isdying : "re7.exe", 0x9322E10, 0x60;
 }
 
 state("re7", "Buy RE8!! Version")
@@ -172,6 +154,10 @@ init
 		case (241680384):
 			version = "1.2";
 			vars.inventoryPtr = 0x7091CA0;
+			break;
+		case (162590720):
+			version = "cerod_nvidia";
+			vars.inventoryPtr = 0x9322E10;
 			break;
 		case (248446976):
 			version = "1.3";
