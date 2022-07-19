@@ -1,6 +1,6 @@
 //Resident Evil 7 Autosplitter
 //By CursedToast 1/28/2017
-//Last updated 12/20/2021
+//Last updated 23/06/2022
 
 //Special thanks to:
 // Souzooka - helping me re-code this to reduce lag and improving my coding in ASL. Couldn't have done this without him :)
@@ -11,143 +11,168 @@
 //Theumer115 - inventory memory value support
 //DarkByte - inventory memory value support
 //Nexusphobiker - helping me find the most updated pointers in the 2/6/2017 RE7 update, and for teaching me how to find them again in the future.
+//TheDementedSalad - found pointers for Steam DX12 update & CeroD Splashscreen update.
 
 
 state("re7", "1.4")
 {
-  	int gamePauseState: "re7.exe", 0x082186C0, 0x28, 0x428, 0x40, 0x28, 0x104;
-	string128 map : "re7.exe", 0x081DE6A8, 0x700, 0x0;
-	int isdying : "re7.exe", 0x081E4148, 0x60;
+  	int gamePauseState: 0x82186C0, 0x28, 0x428, 0x40, 0x28, 0x104;
+	string128 map : 0x81DE6A8, 0x700, 0x0;
+	int isdying : 0x81E4148, 0x60;
 }
 
 state("re7", "cerod")
 {
-	int gamePauseState: "re7.exe", 0x093698F0, 0x28, 0x428, 0x40, 0x28, 0x104;
-	string128 map : "re7.exe", 0x0932F7E8, 0x700, 0x0;
-	int isdying : "re7.exe", 0x093352C0, 0x60;
+	int gamePauseState: 0x93698F0, 0x28, 0x428, 0x40, 0x28, 0x104;
+	string128 map : 0x932F7E8, 0x700, 0x0;
+	int isdying : 0x93352C0, 0x60;
 }
 
 state("re7", "cerod_nvidia")
 {
-	int gamePauseState: "re7.exe", 0x9358310, 0x28, 0x428, 0x40, 0x28, 0x104;
-	string128 map : "re7.exe", 0x931D8E8, 0x700, 0x0;
-	int isdying : "re7.exe", 0x9322E10, 0x60;
+	int gamePauseState: 0x9358310, 0x28, 0x428, 0x40, 0x28, 0x104;
+	string128 map : 0x931D8E8, 0x700, 0x0;
+	int isdying : 0x9322E10, 0x60;
 }
 
 state("re7", "Buy RE8!! Version")
 {
-	int gamePauseState: "re7.exe", 0x081FB9F8, 0x108;
-	string128 map : "re7.exe", 0x081EACE0, 0x700, 0x0;
-	int isdying : "re7.exe", 0x081F24E8, 0x60;
+	int gamePauseState: 0x81FB9F8, 0x108;
+	string128 map : 0x81EACE0, 0x700, 0x0;
+	int isdying : 0x81F24E8, 0x60;
 }
 
 state("re7", "12/17 Update")
 {
-	int gamePauseState: "re7.exe", 0x081FA818, 0x108;
-	string128 map : "re7.exe", 0x081E9B00, 0x700, 0x0;
-	int isdying : "re7.exe", 0x081F1308, 0x60;
+	int gamePauseState: 0x81FA818, 0x108;
+	string128 map : 0x81E9B00, 0x700, 0x0;
+	int isdying : 0x81F1308, 0x60;
+}
+
+state("re7", "Next Gen")
+{
+	int gamePauseState: 0x8FC42F8, 0x104;
+	string128 map : 0x8F7DE00, 0x960, 0x0;
+	int isdying : 0x8FB9B48, 0x60;
+}
+
+state("re7", "CeroD 20.4.0.2")
+{
+	int gamePauseState: 0x9384AB8, 0x104;
+	string128 map : 0x934A600, 0x700, 0x0;
+	int isdying : 0x9355468, 0x60;
 }
 
 startup
 {
 	settings.Add("maingame", false, "Main Campaign");
-	settings.Add("meme", false, "No Guest House%", "maingame");
-	settings.Add("c01_Corridor01", false, "Reached the Guest House", "maingame");
-	settings.Add("ChainCutter", false, "Bolt Cutters", "maingame");
-	settings.Add("HandAxe", false, "Axe (first time)", "maingame");
-	settings.Add("Fuse", false, "Fuse (Guest House)", "maingame");
-	settings.Add("welcome2family", false, "Welcome to the family (splits during drag scene)", "maingame");
+	settings.CurrentDefaultParent = "maingame";
+	settings.Add("meme", false, "Enable No Guest House%");
+	settings.Add("splits", false, "Main Game Splits");
+	settings.CurrentDefaultParent = "splits";
+	settings.Add("c01_Corridor01", false, "Reached the Guest House");
+	settings.Add("ChainCutter", false, "Bolt Cutters");
+	settings.Add("HandAxe", false, "Axe (first time)");
+	settings.Add("Fuse", false, "Fuse (Guest House)");
+	settings.Add("welcome2family", false, "Welcome to the family (splits during drag scene)");
 	settings.Add("100family", false, "100% run (splits during Zoe stapling hand)", "welcome2family");
+	settings.Add("FloorDoorKey", false, "Hatch Key");
+	settings.Add("Knife", false, "Knife");
+	settings.Add("Handgun_M19", false, "M19 (Guest House gun)");
+	settings.Add("Handgun_G17", false, "G17 (Garage gun)");
+	settings.Add("EthanCarKey", false, "Car Key");
+	settings.Add("EntranceHallKey", false, "Ox Statuette");
+	settings.Add("PendulumClock", false, "Clock Pendulum");
+	settings.Add("3CrestKeyA", false, "Blue Dog Head");
+	settings.Add("SilhouettePazzlePiece", false, "Wooden Statuette");
+	settings.Add("3CrestKeyB", false, "White Dog Head");
+	settings.Add("WorkroomKey", false, "Dissection Room Key");
+	settings.Add("3CrestKeyC", false, "Red Dog Head");
+	settings.Add("ChainSaw", false, "Chainsaw");
+	settings.Add("chainsawduel", false, "Finished chainsaw fight");
+	settings.Add("MorgueKey", false, "Scorpion Key");
+	settings.Add("c03_TrailerHouse", false, "Reached the trailer (first time)");
+	settings.Add("c03_OldHouse1FEntrance01", false, "Reached the Old House");
+	settings.Add("BurnerPartsA", false, "Burner Grip");
+	settings.Add("BurnerPartsB", false, "Burner Nozzle");
+	settings.Add("SilhouettePazzlePieceOldHouse", false, "Stone Statue");
+	settings.Add("Crank", false, "Crank");
+	settings.Add("TalismanKey", false, "Crow Key");
+	settings.Add("c03_OldHouse2FHallway02", false, "Entered Crow Door (after falling down hole)");
+	settings.Add("Lantern", false, "Lantern");
+	settings.Add("usedlantern", false, "Placed Lantern (to unlock door)");
+	settings.Add("SerumMaterialA", false, "D-Series Arm");
+	settings.Add("Magnum", false, "Magnum");
+	settings.Add("MasterKey", false, "Snake Key");
+	settings.Add("GrenadeLauncher", false, "Grenade Launcher");
+	settings.Add("LucasCardKey2", false, "Red Key Card");
+	settings.Add("LucasCardKey", false, "Blue Keycard");
+	settings.Add("c03_LeftArea2FTvRoom", false, "Reached Lucas TV room");
+	settings.Add("Battery", false, "Battery");
+	settings.Add("Candle", false, "Candle");
+	settings.Add("Valve", false, "Valve Handle");
+	settings.Add("Timebomb", false, "Timebomb");
+	settings.Add("SerumMaterialB", false, "D-Series Head");
+	settings.Add("SerumComplete", false, "Completed Serum");
+	settings.Add("hittheroadjack", false, "Injected Jack");
+	settings.Add("EvelynRadar1", false, "Mia Start");
+	settings.Add("fuse2", false, "Fuse 2 (ship)");
+	settings.Add("FoundFootage050", false, "Mia Videotape (picked up)");
+	settings.Add("videotapeend", false, "Mia Tape End");
+	settings.Add("EvOpener", false, "Lug Wrench");
+	settings.Add("EvCable", false, "Power Cable");
+	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship)");
+	settings.Add("EvelynRadar4", false, "Mia Complete");
+	settings.Add("SerumTypeE", false, "Necrotoxin");
+	settings.Add("injectedbitch", false, "Injected Evie");
+	settings.Add("Handgun_Albert", false, "Albert Gun (Playtime's over)");
+	settings.Add("end", false, "End");
+	settings.CurrentDefaultParent = null;
+
 	
-	settings.Add("FloorDoorKey", false, "Hatch Key", "maingame");
-	settings.Add("Knife", false, "Knife", "maingame");
-	settings.Add("Handgun_M19", false, "M19 (Guest House gun)", "maingame");
-	settings.Add("Handgun_G17", false, "G17 (Garage gun)", "maingame");
-	settings.Add("EthanCarKey", false, "Car Key", "maingame");
-	settings.Add("EntranceHallKey", false, "Ox Statuette", "maingame");
-	settings.Add("PendulumClock", false, "Clock Pendulum", "maingame");
-	settings.Add("3CrestKeyA", false, "Blue Dog Head", "maingame");
-	settings.Add("SilhouettePazzlePiece", false, "Wooden Statuette", "maingame");
-	settings.Add("3CrestKeyB", false, "White Dog Head", "maingame");
-	settings.Add("WorkroomKey", false, "Dissection Room Key", "maingame");
-	settings.Add("3CrestKeyC", false, "Red Dog Head", "maingame");
-	settings.Add("ChainSaw", false, "Chainsaw", "maingame");
-	settings.Add("chainsawduel", false, "Finished chainsaw fight", "maingame");
-	settings.Add("MorgueKey", false, "Scorpion Key", "maingame");
-	settings.Add("c03_TrailerHouse", false, "Reached the trailer (first time)", "maingame");
-	settings.Add("c03_OldHouse1FEntrance01", false, "Reached the Old House", "maingame");
-	settings.Add("BurnerPartsA", false, "Burner Grip", "maingame");
-	settings.Add("BurnerPartsB", false, "Burner Nozzle", "maingame");
-	settings.Add("SilhouettePazzlePieceOldHouse", false, "Stone Statue", "maingame");
-	settings.Add("Crank", false, "Crank", "maingame");
-	settings.Add("TalismanKey", false, "Crow Key", "maingame");
-	settings.Add("c03_OldHouse2FHallway02", false, "Entered Crow Door (after falling down hole)", "maingame");
-	settings.Add("Lantern", false, "Lantern", "maingame");
-	settings.Add("usedlantern", false, "Placed Lantern (to unlock door)", "maingame");
-	settings.Add("SerumMaterialA", false, "D-Series Arm", "maingame");
-	settings.Add("Magnum", false, "Magnum", "maingame");
-	settings.Add("MasterKey", false, "Snake Key", "maingame");
-	settings.Add("GrenadeLauncher", false, "Grenade Launcher", "maingame");
-	settings.Add("LucasCardKey2", false, "Red Key Card", "maingame");
-	settings.Add("LucasCardKey", false, "Blue Keycard", "maingame");
-	settings.Add("c03_LeftArea2FTvRoom", false, "Reached Lucas TV room", "maingame");
-	settings.Add("Battery", false, "Battery", "maingame");
-	settings.Add("Candle", false, "Candle", "maingame");
-	settings.Add("Valve", false, "Valve Handle", "maingame");
-	settings.Add("Timebomb", false, "Timebomb", "maingame");
-	settings.Add("SerumMaterialB", false, "D-Series Head", "maingame");
-	settings.Add("SerumComplete", false, "Completed Serum", "maingame");
-	settings.Add("hittheroadjack", false, "Injected Jack", "maingame");
-	settings.Add("EvelynRadar1", false, "Mia Start", "maingame");
-	settings.Add("fuse2", false, "Fuse 2 (ship)", "maingame");
-	settings.Add("FoundFootage050", false, "Mia Videotape (picked up)", "maingame");
-	settings.Add("videotapeend", false, "Mia Tape End", "maingame");
-	settings.Add("EvOpener", false, "Lug Wrench", "maingame");
-	settings.Add("EvCable", false, "Power Cable", "maingame");
-	settings.Add("fuse3", false, "Retrieved Fuse (from door on ship)", "maingame");
-	settings.Add("EvelynRadar4", false, "Mia Complete", "maingame");
-	settings.Add("SerumTypeE", false, "Necrotoxin", "maingame");
-	settings.Add("injectedbitch", false, "Injected Evie", "maingame");
-	settings.Add("Handgun_Albert", false, "Albert Gun (Playtime's over)", "maingame");
-	settings.Add("end", false, "End", "maingame");
 	settings.Add("nah", false, "Not a Hero");
-	settings.Add("c08_SaltMineCorridor01", false, "Reached the new section of the mine", "nah");
-	settings.Add("KeyItem05Ch8", false, "Gear", "nah");
-	settings.Add("KeyItem03Ch8", false, "Crank", "nah");
-	settings.Add("Ch8CageKey", false, "Cage Key", "nah");
-	settings.Add("c08_MiningRoom01", false, "Entered soldier 2's cell", "nah");
-	settings.Add("Handgun_Albert_C", false, "Handgun (Professional mode only!)", "nah");
-	settings.Add("AlbertHandgunBulletL", false, "Ramrods (first time, near night vision)", "nah");
-	settings.Add("MineMasterKey", false, "Clown Key", "nah");
-	settings.Add("Shotgun_Albert", false, "Shotgun (Professional mode only!)", "nah");
-	settings.Add("c08_TrainPassage05", false, "Saved soldier 3 (triggers in room with ladder)", "nah");
-	settings.Add("c08_MiningTunnel01", false, "Reached fat molded boss room", "nah");
-	settings.Add("nah_bombgone", false, "Beat fat molded/Removed bomb (triggers after leaving area after removing bomb)", "nah");
-	settings.Add("c08_ShieldMachine_Entra", false, "Entered the Blast Door", "nah");
-	settings.Add("c08_MineTerminal01", false, "Escaped the explosion (post-horde)", "nah");
-	settings.Add("lucsbossRoom", false, "Reached the Lucas boss room", "nah");
-	settings.Add("nah_end", false, "End", "nah");
+	settings.CurrentDefaultParent = "nah";
+	settings.Add("c08_SaltMineCorridor01", false, "Reached the new section of the mine");
+	settings.Add("KeyItem05Ch8", false, "Gear");
+	settings.Add("KeyItem03Ch8", false, "Crank");
+	settings.Add("Ch8CageKey", false, "Cage Key");
+	settings.Add("c08_MiningRoom01", false, "Entered soldier 2's cell");
+	settings.Add("Handgun_Albert_C", false, "Handgun (Professional mode only!)");
+	settings.Add("AlbertHandgunBulletL", false, "Ramrods (first time, near night vision)");
+	settings.Add("MineMasterKey", false, "Clown Key");
+	settings.Add("Shotgun_Albert", false, "Shotgun (Professional mode only!)");
+	settings.Add("c08_TrainPassage05", false, "Saved soldier 3 (triggers in room with ladder)");
+	settings.Add("c08_MiningTunnel01", false, "Reached fat molded boss room");
+	settings.Add("nah_bombgone", false, "Beat fat molded/Removed bomb (triggers after leaving area after removing bomb)");
+	settings.Add("c08_ShieldMachine_Entra", false, "Entered the Blast Door");
+	settings.Add("c08_MineTerminal01", false, "Escaped the explosion (post-horde)");
+	settings.Add("lucsbossRoom", false, "Reached the Lucas boss room");
+	settings.Add("nah_end", false, "End");
+	settings.CurrentDefaultParent = null;
+	
 	settings.Add("eoz", false, "End of Zoe");
-	settings.Add("NumaItem030", false, "Cure for Type-E Infection", "eoz");
-	settings.Add("eoz_usedcure", false, "Used Cure", "eoz");
-	settings.Add("c09_CampSafeRoomInside", false, "Placed Zoe in Safe Room (triggers upon entering)", "eoz");
-	settings.Add("c09_SteamBoat3F", false, "Reached the Boat", "eoz");
-	settings.Add("NumaItem031", false, "Second Cure for Type-E Infection (on boat)", "eoz");
-	settings.Add("c09_SteamBoatB1FCorridor01", false, "Defeated Jack (on boat)", "eoz");
-	settings.Add("c09_MoldSwampGround05", false, "Made it through the Alligator Swamp", "eoz");
-	settings.Add("c09_Cemetery", false, "Reached the Cemetery", "eoz");
-	settings.Add("c09_Church", false, "Reached the Church", "eoz");
-	settings.Add("CH9_WP001", false, "AMG-78", "eoz");
-	settings.Add("c03_MainHouseHall", false, "Reached the Baker's Main Hall", "eoz");
-	settings.Add("eoz_end", false, "End", "eoz");
+	settings.CurrentDefaultParent = "eoz";
+	settings.Add("NumaItem030", false, "Cure for Type-E Infection");
+	settings.Add("eoz_usedcure", false, "Used Cure");
+	settings.Add("c09_CampSafeRoomInside", false, "Placed Zoe in Safe Room (triggers upon entering)");
+	settings.Add("c09_SteamBoat3F", false, "Reached the Boat");
+	settings.Add("NumaItem031", false, "Second Cure for Type-E Infection (on boat)");
+	settings.Add("c09_SteamBoatB1FCorridor01", false, "Defeated Jack (on boat)");
+	settings.Add("c09_MoldSwampGround05", false, "Made it through the Alligator Swamp");
+	settings.Add("c09_Cemetery", false, "Reached the Cemetery");
+	settings.Add("c09_Church", false, "Reached the Church");
+	settings.Add("CH9_WP001", false, "AMG-78");
+	settings.Add("c03_MainHouseHall", false, "Reached the Baker's Main Hall");
+	settings.Add("eoz_end", false, "End");
+	settings.CurrentDefaultParent = null;
 }
 
 init
 {
 	vars.splits = new HashSet<string>();
 	vars.inventoryPtr = IntPtr.Zero;
-  vars.fuse3PickedUp = 0;
-  vars.fuse2PickedUp = 0;
+    vars.fuse3PickedUp = 0;
+    vars.fuse2PickedUp = 0;
 
 	switch (modules.First().ModuleMemorySize)
 	{
@@ -179,7 +204,15 @@ init
 			break;
 		case (142065664):
 			version = "12/17 Update";
-			vars.inventoryPtr = 0x081F1308;
+			vars.inventoryPtr = 0x81F1308;
+			break;
+		case (161280000):
+			version = "Next Gen";
+			vars.inventoryPtr = 0x8FB9B48;
+			break;
+		case (162783232):
+			version = "CeroD 20.4.0.2";
+			vars.inventoryPtr = 0x9355468;
 			break;
 		default:
 			version = "1.1";
@@ -188,13 +221,25 @@ init
 	}
 
 	// Track inventory IDs
-	current.inventory = new string[20].Select((_, i) => {
-		StringBuilder sb = new StringBuilder(300);
-		IntPtr ptr;
+	if (version == "Next Gen"){
+    current.inventory = new string[20].Select((_, i) => {
+        StringBuilder sb = new StringBuilder(300);
+        IntPtr ptr;
+		new DeepPointer(vars.inventoryPtr, 0x60, 0x10, 0x20 + (i * 8), 0x18, 0x80, 0x14).DerefOffsets(memory, out ptr);
+	memory.ReadString(ptr, sb);
+    return sb.ToString();
+    }).ToArray();
+	}
+	
+	else{
+		current.inventory = new string[20].Select((_, i) => {
+        StringBuilder sb = new StringBuilder(300);
+        IntPtr ptr;
 		new DeepPointer(vars.inventoryPtr, 0x60, 0x20, 0x30 + (i * 8), 0x28, 0x80, 0x24).DerefOffsets(memory, out ptr);
-		memory.ReadString(ptr, sb);
-		return sb.ToString();
-	}).ToArray();
+	memory.ReadString(ptr, sb);
+    return sb.ToString();
+    }).ToArray();
+	}
 }
 
 
@@ -206,7 +251,7 @@ start
 	}
 	if (settings["eoz"])
 	{
-		return (current.map == "sm0878_Carpet08A" || current.map == "c04_Ship3FInfirmaryPast");
+		return (current.map == "sm0878_Carpet08A" || current.map == "c04_Ship3FInfirmaryPast" || current.map == "c09_JoeHouseInside" && current.inventory[0] == "NumaItem071");
 	}
 	if (settings["meme"])
 	{
@@ -218,15 +263,30 @@ start
 
 update
 {
-//print(modules.First().ModuleMemorySize.ToString());
-	// Update inventory IDs
-	current.inventory = new string[20].Select((_, i) => {
-		StringBuilder sb = new StringBuilder(100);
-		IntPtr ptr;
+	//print(modules.First().ModuleMemorySize.ToString());
+	
+	// Track inventory IDs
+	if (version == "Next Gen"){
+    current.inventory = new string[20].Select((_, i) => {
+        StringBuilder sb = new StringBuilder(300);
+        IntPtr ptr;
+		new DeepPointer(vars.inventoryPtr, 0x60, 0x10, 0x20 + (i * 8), 0x18, 0x80, 0x14).DerefOffsets(memory, out ptr);
+	memory.ReadString(ptr, sb);
+    return sb.ToString();
+    }).ToArray();
+	}
+	
+	else{
+		current.inventory = new string[20].Select((_, i) => {
+        StringBuilder sb = new StringBuilder(300);
+        IntPtr ptr;
 		new DeepPointer(vars.inventoryPtr, 0x60, 0x20, 0x30 + (i * 8), 0x28, 0x80, 0x24).DerefOffsets(memory, out ptr);
-		memory.ReadString(ptr, sb);
-		return sb.ToString();
-	}).ToArray();
+	memory.ReadString(ptr, sb);
+    return sb.ToString();
+    }).ToArray();
+	}
+		
+
 
   vars.isdead = (current.isdying == 0 ? 1 : 0);
 	if (timer.CurrentPhase == TimerPhase.NotRunning) { vars.splits.Clear(); vars.fuse2PickedUp = 0; vars.fuse3PickedUp = 0; }
@@ -401,4 +461,3 @@ split
 isLoading
 {
 	return current.gamePauseState != 0 && current.gamePauseState != 262400 && current.gamePauseState != 8 && current.gamePauseState != 262144;
-}
